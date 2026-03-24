@@ -3,330 +3,454 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMA - Студия записи подкастов в Махачкале</title>
+    <title>Luma Studio - студия записи подкастов и reels в Махачкале</title>
+    <meta name="description" content="Luma Studio - студия записи подкастов, reels и экспертных роликов в Махачкале. Съемка в 4K, камеры Sony A7C, свет Godox, звук Shure и пакеты под ключ.">
+    <meta name="keywords" content="студия подкастов Махачкала, reels Махачкала, видеоподкаст, аренда студии, Luma Studio">
+    <meta name="theme-color" content="#0b0d0d">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luma Studio - студия записи подкастов и reels в Махачкале">
+    <meta property="og:description" content="Статичная студия для подкастов, reels и экспертных роликов в Махачкале: 4K, Sony A7C, Godox, Shure и пакеты под ключ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Prata&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a href="#" class="logo">LUMA</a>
-                <nav class="nav nav--desktop">
-                    <a href="#hall" class="nav__link">Наш зал</a>
-                    <a href="#projects" class="nav__link">Наши проекты</a>
-                    <a href="#equipment" class="nav__link">Оборудование</a>
-                    <a href="#rates" class="nav__link">Тарифы</a>
-                    <a href="#contacts" class="nav__link">Контакты</a>
-                </nav>
-                <button class="burger burger--tablet">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <button class="burger burger--mobile">
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a href="#top" class="brand" aria-label="Luma Studio">
+                <img src="index.png" alt="" class="brand__image" width="547" height="547">
+            </a>
+
+            <nav class="nav nav--desktop" aria-label="Основная навигация">
+                <a href="#studio" class="nav__link">О студии</a>
+                <a href="#formats" class="nav__link">Форматы</a>
+                <a href="#equipment" class="nav__link">Оборудование</a>
+                <a href="#pricing" class="nav__link">Тарифы</a>
+                <a href="#contacts" class="nav__link">Контакты</a>
+            </nav>
+
+            <div class="site-header__actions">
+                <a href="https://wa.me/79894590468" class="btn btn--header" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
         </div>
-        <!-- Mobile/Tablet Menu -->
-        <div class="mobile-menu">
+
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
             <div class="mobile-menu__overlay"></div>
-            <div class="mobile-menu__content">
-                <button class="mobile-menu__close">&times;</button>
-                <nav class="nav nav--mobile">
-                    <a href="#" class="logo">LUMA</a>
-                    <a href="#hall" class="nav__link">Наш зал</a>
-                    <a href="#projects" class="nav__link">Наши проекты</a>
+            <div class="mobile-menu__panel">
+                <div class="mobile-menu__header">
+                    <a href="#top" class="brand brand--compact" aria-label="Luma Studio">
+                        <img src="index.png" alt="" class="brand__image" width="547" height="547">
+                    </a>
+                    <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">&times;</button>
+                </div>
+
+                <nav class="nav nav--mobile" aria-label="Мобильная навигация">
+                    <a href="#studio" class="nav__link">О студии</a>
+                    <a href="#formats" class="nav__link">Форматы</a>
                     <a href="#equipment" class="nav__link">Оборудование</a>
-                    <a href="#rates" class="nav__link">Тарифы</a>
+                    <a href="#pricing" class="nav__link">Тарифы</a>
                     <a href="#contacts" class="nav__link">Контакты</a>
                 </nav>
+
+                <div class="mobile-menu__contacts">
+                    <a href="https://wa.me/79894590468" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                    <div class="mobile-menu__socials">
+                        <a href="https://www.instagram.com/lumastudio_sf?igsh=MTlzbHU0bW81b2JreA==" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://youtube.com/@lumastudi?si=6f5TK0lcHiJ7FunP" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title">СТУДИЯ ЗАПИСИ ПОДКАСТОВ В Махачкале</h1>
-                <p class="hero__subtitle">Уютная студия со всем необходимым оборудованием и техническим специалистом. Мы создаем все условия, чтобы вы могли максимально сосредоточиться на записи своего подкаста.</p>
-                <div class="hero__cta">
-                    <a href="#rates" class="btn btn--primary">Забронировать</a>
-                    <a href="#equipment" class="btn btn--secondary">Оборудование</a>
-                </div>
+    <main>
+        <section class="hero" id="top">
+            <div class="hero__media">
+                <img src="images/hero.jpg" alt="Интерьер студии Luma Studio" fetchpriority="high" decoding="async" width="1600" height="900">
             </div>
-        </div>
-    </section>
+            <div class="hero__veil"></div>
 
-    <!-- Hall Section -->
-    <section id="hall" class="section section--hall">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">НАШ ЗАЛ</h2>
-            </div>
-            <div class="hall__grid">
-                <div class="hall__images">
-                    <img class="hall__image hall__image--main" src="images/main.jpeg"></img>
-                    <img class="hall__image hall__image--main" src="images/secondary.jpg"></img>
-                    <img class="hall__image hall__image--main" src="images/main.jpeg"></img>
-                    <img class="hall__image hall__image--main" src="images/secondary.jpg"></img>
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <p class="eyebrow">Luma Studio • Махачкала</p>
+                    <h1 class="hero__title">Студия записи подкастов и reels в Махачкале</h1>
+                    <p class="hero__subtitle">
+                        Площадка для интервью, экспертных роликов и видеоподкастов под ключ. Мы берём на себя
+                        свет, звук и техническое сопровождение, чтобы вы могли сосредоточиться на контенте.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a href="https://wa.me/79894590468" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                        <a href="#pricing" class="btn btn--ghost">Смотреть тарифы</a>
+                    </div>
+
+                    <ul class="hero__facts">
+                        <li>Съёмка в 4K</li>
+                        <li>До 3 камер</li>
+                        <li>30 минут на подготовку</li>
+                    </ul>
                 </div>
-                <div class="hall__content">
-                    <h3 class="hall__subtitle">LUMA</h3>
-                    <p class="hall__text">Уютная студия со всем необходимым оборудованием и техническим специалистом. Мы создаем все условия, чтобы вы могли максимально сосредоточиться на записи своего подкаста.</p>
-                    <p class="hall__text">С вас - контент, с нас - максимальный комфорт, качественные картинка и звук.</p>
-                    <div class="features-list">
-                        <div class="features-list__item">ЗАПИШЕМ В 4K НА КАМЕРЫ SONY</div>
-                        <div class="features-list__item">ВСЕ НАСТРОЕМ И БУДЕМ С ВАМИ ВСЮ ЗАПИСЬ</div>
-                        <div class="features-list__item">БЫСТРО ОТДАДИМ МАТЕРИАЛ ИЛИ СДЕЛАЕМ МОНТАЖ</div>
+
+                <div class="hero__panel">
+                    <p class="hero__panel-label">Форматы записи</p>
+                    <h2 class="hero__panel-title">От почасовой аренды до пакетов под ключ</h2>
+                    <ul class="hero__panel-list">
+                        <li>Аренда студии и техники от 2 500 ₽ в час</li>
+                        <li>Reels и экспертные ролики с камерой Sony A7C</li>
+                        <li>Видеоподкасты со светом, звуком и монтажом</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="studio" class="section section--studio reveal">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">О студии</p>
+                    <h2 class="section-heading__title">Пространство, где удобно говорить в кадре</h2>
+                    <p class="section-heading__text">
+                        Luma Studio подходит для подкастов, интервью, reels и экспертных роликов. В студии уже собран
+                        комплект света, звука и камер, а на площадке есть специалист, который помогает с настройкой.
+                    </p>
+                </div>
+
+                <div class="studio-layout">
+                    <div class="studio-gallery">
+                        <figure class="media-card media-card--large">
+                            <img src="images/studio-01.jpg" alt="Студия Luma Studio с несколькими камерами" loading="lazy" decoding="async" width="1024" height="768">
+                        </figure>
+                        <figure class="media-card media-card--offset">
+                            <img src="images/studio-02.jpg" alt="Подкаст-зона Luma Studio" loading="lazy" decoding="async" width="1200" height="675">
+                        </figure>
+                    </div>
+
+                    <div class="studio-copy">
+                        <article class="fact-item">
+                            <span class="fact-item__index">01</span>
+                            <div>
+                                <h3>Под разные форматы</h3>
+                                <p>Подкаст, экспертное видео, reels, интервью или контент для личного бренда.</p>
+                            </div>
+                        </article>
+                        <article class="fact-item">
+                            <span class="fact-item__index">02</span>
+                            <div>
+                                <h3>Картинка и звук под контролем</h3>
+                                <p>Снимаем в 4K, настраиваем свет, следим за звуком и сопровождаем запись на площадке.</p>
+                            </div>
+                        </article>
+                        <article class="fact-item">
+                            <span class="fact-item__index">03</span>
+                            <div>
+                                <h3>Быстрый старт записи</h3>
+                                <p>В тарифы заложены 30 минут на подготовку, а со второго часа действуют скидки.</p>
+                            </div>
+                        </article>
+                        <article class="fact-item">
+                            <span class="fact-item__index">04</span>
+                            <div>
+                                <h3>Можно сразу под ключ</h3>
+                                <p>Если нужен готовый результат, соберём пакет с оператором, монтажом, reels и обложкой.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section class="section section--features">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">LUMA - ЭТО...</h2>
-            </div>
-            <p class="section__subtitle">В нашей студии вы можете записать подкаст, видеовизитку, рилс или провести трансляцию на любую платформу. Ламповая атмосфера, стильный многофункциональный интерьер студии позволяют добиться картинки наивысшего качества.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-card__icon">🏠</div>
-                    <h3 class="feature-card__title">КОМФОРТНАЯ АТМОСФЕРА</h3>
-                    <p class="feature-card__desc">СТУДИЯ ЛЕГКО ТРАНСФОРМИРУЕТСЯ ПОД ВАШИ ЗАДАЧИ</p>
+        <section id="formats" class="section section--formats reveal">
+            <div class="container">
+                <div class="section-heading section-heading--split">
+                    <div>
+                        <p class="eyebrow">Форматы</p>
+                        <h2 class="section-heading__title">Что можно записать в студии</h2>
+                    </div>
+                    <p class="section-heading__text">
+                        Собрали основные сценарии, с которыми к нам приходят чаще всего. Каждый формат можно
+                        адаптировать под задачу, команду и нужный объём постпродакшна.
+                    </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">🎬</div>
-                    <h3 class="feature-card__title">ЗАПИСЬ ПОДКАСТА, КУРСА ИЛИ РИЛС</h3>
-                    <p class="feature-card__desc">ВСЕ НЕОБХОДИМОЕ ОБОРУДОВАНИЕ ДЛЯ СОВРЕМЕННОЙ ЗАПИСИ ВЫСОКОГО КАЧЕСТВА</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">👥</div>
-                    <h3 class="feature-card__title">КОМАНДА ПРОФЕССИОНАЛОВ</h3>
-                    <p class="feature-card__desc">ПОМОГАЕМ НАСТРОИТЬ КАМЕРЫ И ЗВУК. КОНТРОЛИРУЕМ ВЕСЬ ПРОЦЕСС СЪЕМКИ</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">🚗</div>
-                    <h3 class="feature-card__title">БЕСПЛАТНАЯ ПАРКОВКА В ЛЮБОЕ ВРЕМЯ</h3>
-                    <p class="feature-card__desc">НА ТЕРРИТОРИИ НАШЕГО БЦ ВЫ ВСЕГДА СМОЖЕТЕ ОСТАВИТЬ СВОЙ АВТОМОБИЛЬ</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section section--projects">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">НАШИ ПРОЕКТЫ</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-card__image"></div>
-                    <h3 class="project-card__title">Проект 1</h3>
-                </div>
-                <div class="project-card">
-                    <div class="project-card__image"></div>
-                    <h3 class="project-card__title">Проект 2</h3>
-                </div>
-                <div class="project-card">
-                    <div class="project-card__image"></div>
-                    <h3 class="project-card__title">Проект 3</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="format-grid">
+                    <article class="format-card">
+                        <p class="format-card__tag">Почасовой формат</p>
+                        <h3 class="format-card__title">Аренда студии</h3>
+                        <p class="format-card__text">Когда нужен готовый интерьер, оборудование и помощь с быстрым запуском записи.</p>
+                        <ul class="list">
+                            <li>Световое и техническое оборудование студии</li>
+                            <li>DJI Mic 3 и помощь с постановкой света</li>
+                            <li>Фотофон для фотосессий и контентной съёмки</li>
+                        </ul>
+                    </article>
 
-    <!-- Equipment Section -->
-    <section id="equipment" class="section section--equipment">
-        <div class="container">
-            <div class="equipment-tabs">
-                <button class="equipment-tab equipment-tab--active" data-tab="audio">АУДИО</button>
-                <button class="equipment-tab" data-tab="video">ВИДЕО</button>
+                    <article class="format-card format-card--featured">
+                        <p class="format-card__tag">Контент для соцсетей</p>
+                        <h3 class="format-card__title">Reels / экспертный ролик</h3>
+                        <p class="format-card__text">Подходит для личного бренда, презентаций, экспертных видео и коротких форматов.</p>
+                        <ul class="list">
+                            <li>Sony A7C, Shure MV7, DJI Mic 3, Rodecaster Pro 2</li>
+                            <li>Постановка света и звука перед записью</li>
+                            <li>Готовая среда для вертикального и горизонтального контента</li>
+                        </ul>
+                    </article>
+
+                    <article class="format-card">
+                        <p class="format-card__tag">Под ключ</p>
+                        <h3 class="format-card__title">Видеоподкаст</h3>
+                        <p class="format-card__text">Формат для беседы, интервью и полноценных выпусков с несколькими камерами и оператором.</p>
+                        <ul class="list">
+                            <li>Запись до 2 часов и съёмка на 3 камеры</li>
+                            <li>Постановка света и звука, работа оператора</li>
+                            <li>Исходные материалы или пакет с монтажом</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
-            <div class="equipment-content">
-                <div class="equipment-pane equipment-pane--audio equipment-pane--active">
-                    <div class="equipment-list">
-                        <div class="equipment-item">
-                            <div class="equipment-item__icon">🎙️</div>
-                            <h4>RODE PODCASTER</h4>
-                            <p>ПАРК МИКРОФОНОВ, КОТОРЫЕ ПОЗВОЛЯЮТ РАСКРЫТЬ БАРХАТНОСТЬ ГОЛОСА</p>
+        </section>
+
+        <section id="equipment" class="section section--equipment reveal">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Оборудование</p>
+                    <h2 class="section-heading__title">Работаем на проверенном наборе техники</h2>
+                    <p class="section-heading__text">
+                        Используем реальный набор оборудования студии, чтобы быстро собрать конфигурацию под подкаст,
+                        reels или экспертный ролик без лишней подготовки со стороны клиента.
+                    </p>
+                </div>
+
+                <div class="equipment-grid">
+                    <article class="equipment-card">
+                        <img src="images/gear-camera.jpg" alt="Камера Sony A7C" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <div class="equipment-card__body">
+                            <p class="equipment-card__label">Камера</p>
+                            <h3>Sony A7C</h3>
+                            <p>Полнокадровая камера для чистой 4K-картинки, интервью и экспертных роликов.</p>
+                            <ul class="list list--compact">
+                                <li>24.2 MP матрица</li>
+                                <li>Видео 4K 30fps / Full HD 120fps</li>
+                                <li>5-осевая стабилизация и real-time eye AF</li>
+                            </ul>
                         </div>
-                        <div class="equipment-item">
-                            <div class="equipment-item__icon">🎤</div>
-                            <h4>DJI MIC</h4>
-                            <p>ПЕТЛИЧНЫЕ РАДИОМИКРОФОНЫ ДЛЯ ЗАПИСИ РИЛСОВ, КУРСА ИЛИ ИНТЕРВЬЮ БЕЗ СТОЛА</p>
+                    </article>
+
+                    <article class="equipment-card">
+                        <img src="images/gear-mic.jpg" alt="Микрофон Shure MV7" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <div class="equipment-card__body">
+                            <p class="equipment-card__label">Звук</p>
+                            <h3>Shure MV7</h3>
+                            <p>Динамический микрофон с чистым и глубоким звучанием для речи, интервью и подкастов.</p>
+                            <ul class="list list--compact">
+                                <li>USB и XLR подключение</li>
+                                <li>Чистый речевой звук без лишнего шума</li>
+                                <li>Подходит для настольной записи подкаста</li>
+                            </ul>
                         </div>
-                        <div class="equipment-item">
-                            <div class="equipment-item__icon">🎛️</div>
-                            <h4>ZOOM PODTRACK P8</h4>
-                            <p>МИКШЕРНЫЙ ПУЛЬТ С ВОЗМОЖНОСТЬЮ МОНИТОРИНГА ДО 4-Х КАНАЛОВ</p>
+                    </article>
+
+                    <article class="equipment-card">
+                        <img src="images/gear-wireless.jpg" alt="Беспроводная система DJI Mic 3" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <div class="equipment-card__body">
+                            <p class="equipment-card__label">Беспроводной звук</p>
+                            <h3>DJI Mic 3</h3>
+                            <p>Решение для reels, экспертных роликов и динамичных форматов без стола и стойки.</p>
+                            <ul class="list list--compact">
+                                <li>Беспроводная система до 250 м</li>
+                                <li>Двойной передатчик</li>
+                                <li>До 15 часов работы</li>
+                            </ul>
                         </div>
+                    </article>
+
+                    <article class="equipment-card">
+                        <img src="images/gear-light.jpg" alt="Студийный свет Godox" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <div class="equipment-card__body">
+                            <p class="equipment-card__label">Свет</p>
+                            <h3>Godox</h3>
+                            <p>Свет под интервью, предметную подачу и акцентные кадры с гибкой цветовой настройкой.</p>
+                            <ul class="list list--compact">
+                                <li>Godox SL60W II и Molus X100</li>
+                                <li>Мягкий рисующий свет и RGB-акценты</li>
+                                <li>Точная настройка температуры и оттенков</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="equipment-extras">
+                    <div class="equipment-extras__copy">
+                        <p class="eyebrow">Дополнительно</p>
+                        <h3 class="equipment-extras__title">Под задачу можно подключить ещё больше</h3>
+                        <p class="equipment-extras__text">
+                            В студии также доступны Rodecaster Pro 2, телесуфлёр, генератор дыма, фотофон
+                            для фотосессий и полная постановка света и звука перед записью.
+                        </p>
+                    </div>
+                    <ul class="pill-list">
+                        <li>Rodecaster Pro 2</li>
+                        <li>Телесуфлёр</li>
+                        <li>Генератор дыма</li>
+                        <li>Фотофон</li>
+                        <li>Постановка света</li>
+                        <li>Постановка звука</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section section--pricing reveal">
+            <div class="container">
+                <div class="section-heading section-heading--split">
+                    <div>
+                        <p class="eyebrow">Тарифы</p>
+                        <h2 class="section-heading__title">Почасовые форматы и пакеты под ключ</h2>
+                    </div>
+                    <p class="section-heading__text">
+                        Основу прайса собрали из актуальных карточек Luma Studio. Все тарифы остаются статичными
+                        на сайте, без сложной логики и без зависимостей от бэкенда.
+                    </p>
+                </div>
+
+                <div class="pricing-group">
+                    <div class="pricing-group__header">
+                        <p class="pricing-group__eyebrow">Почасовые форматы</p>
+                        <h3 class="pricing-group__title">Если нужен гибкий формат съёмки</h3>
+                    </div>
+                    <div class="pricing-grid pricing-grid--three">
+                        <article class="pricing-card">
+                            <p class="pricing-card__label">База</p>
+                            <h4 class="pricing-card__title">Аренда студии</h4>
+                            <p class="pricing-card__price">2 500 ₽ <span>/ час</span></p>
+                            <ul class="list">
+                                <li>Всё световое и техническое оборудование студии</li>
+                                <li>Микрофоны DJI Mic 3</li>
+                                <li>Постановка света</li>
+                                <li>Использование фотофона для фотосессий</li>
+                            </ul>
+                            <p class="pricing-card__note">30 минут на подготовку включены. Со 2 часа и далее действует скидка.</p>
+                            <a href="https://wa.me/79894590468" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Забронировать</a>
+                        </article>
+
+                        <article class="pricing-card pricing-card--featured">
+                            <p class="pricing-card__label">Контент для соцсетей</p>
+                            <h4 class="pricing-card__title">Reels / экспертный ролик</h4>
+                            <p class="pricing-card__price">3 500 ₽ <span>/ час</span></p>
+                            <ul class="list">
+                                <li>Всё студийное оборудование</li>
+                                <li>DJI Mic 3, Shure MV7, Rodecaster Pro 2</li>
+                                <li>Камера Sony A7C</li>
+                                <li>Постановка света и звука</li>
+                                <li>Использование фотофона</li>
+                            </ul>
+                            <p class="pricing-card__note">30 минут на подготовку включены. Со 2 часа и далее действует скидка.</p>
+                            <a href="https://wa.me/79894590468" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Выбрать формат</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <p class="pricing-card__label">Под ключ</p>
+                            <h4 class="pricing-card__title">Видеоподкаст</h4>
+                            <p class="pricing-card__price">9 000 ₽</p>
+                            <ul class="list">
+                                <li>Запись подкаста продолжительностью до 2 часов</li>
+                                <li>Съёмка на 3 камеры</li>
+                                <li>Постановка света и звука</li>
+                                <li>Работа оператора</li>
+                                <li>Исходные материалы на носитель</li>
+                            </ul>
+                            <p class="pricing-card__note">Подходит для полноценной беседы и записи выпусков с несколькими спикерами.</p>
+                            <a href="https://wa.me/79894590468" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Обсудить запись</a>
+                        </article>
                     </div>
                 </div>
-                <div class="equipment-pane equipment-pane--video">
-                    <div class="equipment-list">
-                        <div class="equipment-item">
-                            <div class="equipment-item__icon">📹</div>
-                            <h4>SONY ZV-E10</h4>
-                            <p>ПАРК СОВРЕМЕННЫХ КАМЕР ДЛЯ ЗАПИСИ ИДЕАЛЬНОЙ КАРТИНКИ В 4K</p>
-                        </div>
-                        <div class="equipment-item">
-                            <div class="equipment-item__icon">💡</div>
-                            <h4>APUTURE AMARAN</h4>
-                            <p>СВЕТ И ОРИГИНАЛЬНЫЕ СОФТБОКСЫ, А ТАКЖЕ РАЗЛИЧНЫЕ LED-ПОДСВЕТКИ</p>
-                        </div>
-                        <div class="equipment-item">
-                            <div class="equipment-item__icon">📺</div>
-                            <h4>FEELWORLD LIVE PRO M1</h4>
-                            <p>ВИДЕОПУЛЬТ ДЛЯ ПОСТОЯННОГО МОНИТОРИНГА ВСЕХ КАМЕР</p>
-                        </div>
+
+                <div class="pricing-group">
+                    <div class="pricing-group__header">
+                        <p class="pricing-group__eyebrow">Пакеты под ключ</p>
+                        <h3 class="pricing-group__title">Когда нужен уже готовый результат</h3>
+                    </div>
+                    <div class="pricing-grid pricing-grid--two">
+                        <article class="pricing-card">
+                            <p class="pricing-card__label">Пакет Light</p>
+                            <h4 class="pricing-card__title">Запись + базовый постпродакшн</h4>
+                            <p class="pricing-card__price">от 15 000 ₽</p>
+                            <ul class="list">
+                                <li>Запись подкаста продолжительностью до 2 часов</li>
+                                <li>Съёмка на 3 камеры</li>
+                                <li>Постановка света и звука</li>
+                                <li>Монтаж подкаста в течение 7 дней</li>
+                                <li>Превью / reels</li>
+                                <li>Обложка для YouTube</li>
+                                <li>Исходные материалы на носитель</li>
+                            </ul>
+                            <a href="https://wa.me/79894590468" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Запросить пакет</a>
+                        </article>
+
+                        <article class="pricing-card pricing-card--featured">
+                            <p class="pricing-card__label">Пакет Pro</p>
+                            <h4 class="pricing-card__title">Контент-пакет для выпуска</h4>
+                            <p class="pricing-card__price">25 000 ₽</p>
+                            <ul class="list">
+                                <li>Запись подкаста продолжительностью до 2 часов</li>
+                                <li>Съёмка на 3 камеры</li>
+                                <li>Постановка света и звука</li>
+                                <li>Монтаж подкаста в течение 5 дней</li>
+                                <li>3 reels / shorts с титрами</li>
+                                <li>Обложка для YouTube</li>
+                                <li>Исходные материалы на носитель</li>
+                                <li>Аудиоверсия подкаста</li>
+                            </ul>
+                            <a href="https://wa.me/79894590468" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Выбрать Pro</a>
+                        </article>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Rates Section -->
-    <section id="rates" class="section section--rates">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">ТАРИФЫ</h2>
-            </div>
-            <div class="rates-grid">
-                <div class="rate-card">
-                    <h3 class="rate-card__title">ВИДЕОВИЗИТКА/РИЛС</h3>
-                    <div class="rate-card__subtitle">1 гость</div>
-                    <div class="rate-card__price">4500 руб</div>
-                    <ul class="rate-card__features">
-                        <li>АРЕНДА СТУДИИ - 1 ЧАС</li>
-                        <li>КАМЕРЫ - 1-SONY (4К)</li>
-                        <li>МИКРОФОНЫ - 1-RODE</li>
-                        <li>СВЕТ - AMARAN</li>
-                        <li>СЪЕМКА- 50 МИН</li>
-                        <li>СВЕТ - 50 МИН</li>
-                        <li>ОПЕРАТОР - 60 МИН</li>
-                    </ul>
-                    <a href="#" class="btn btn--primary rate-card__btn">ЗАПИСАТЬСЯ</a>
-                </div>
-                <div class="rate-card rate-card--popular">
-                    <div class="rate-card__badge">ПОПУЛЯРНО</div>
-                    <h3 class="rate-card__title">ВИДЕО ПОДКАСТ БЕСЕДА</h3>
-                    <div class="rate-card__subtitle">2 гостя</div>
-                    <div class="rate-card__price">5000 руб</div>
-                    <ul class="rate-card__features">
-                        <li>АРЕНДА СТУДИИ - 1 ЧАС</li>
-                        <li>КАМЕРЫ - 3-SONY (4К)</li>
-                        <li>МИКРОФОНЫ - 2-RODE</li>
-                        <li>СВЕТ - AMARAN</li>
-                        <li>СЪЕМКА- 50 МИН</li>
-                        <li>СВЕТ - 50 МИН</li>
-                        <li>ОПЕРАТОР - 60 МИН</li>
-                    </ul>
-                    <a href="#" class="btn btn--primary rate-card__btn">ЗАПИСАТЬСЯ</a>
-                </div>
-                <div class="rate-card">
-                    <h3 class="rate-card__title">ОНЛАЙН ТРАНСЛЯЦИЯ</h3>
-                    <div class="rate-card__subtitle">ВЕБИНАР 1-2 гостя</div>
-                    <div class="rate-card__price">15000 руб</div>
-                    <ul class="rate-card__features">
-                        <li>АРЕНДА СТУДИИ - 3 ЧАСА</li>
-                        <li>КАМЕРЫ - 3-SONY (4К)</li>
-                        <li>МИКРОФОНЫ - 2-RODE</li>
-                        <li>СВЕТ - AMARAN</li>
-                        <li>СЪЕМКА - 120 МИН</li>
-                        <li>СВЕТ - 120 МИН</li>
-                        <li>ОПЕРАТОР - 120 МИН</li>
-                    </ul>
-                    <a href="#" class="btn btn--primary rate-card__btn">ЗАПИСАТЬСЯ</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Montage Section -->
-    <section class="section section--montage">
-        <div class="container">
-            <div class="montage-grid">
-                <div class="montage-card">
-                    <h3 class="montage-card__title">МУЛЬТИКАМЕРНЫЙ МОНТАЖ</h3>
-                    <ul class="montage-card__list">
-                        <li>СИНХРОНИЗАЦИЯ АУДИОДОРОЖЕК С МИКРОФОНА</li>
-                        <li>УДАЛЕНИЯ БРАКА И ВЫБОР ЛУЧШИХ ДУБЛЕЙ</li>
-                        <li>ОБРАБОТКА ГОЛОСА</li>
-                        <li>ЦВЕТОКОРРЕКЦИЯ</li>
-                        <li>ЗАСТАВКА ПО ШАБЛОНУ</li>
-                    </ul>
-                    <div class="montage-card__price">
-                        <span class="price__amount">от 7000 ₽</span>
-                        <span class="price__label">ЗА 1 ЧАС ГОТОВОГО ВИДЕО</span>
+        <section id="contacts" class="section section--contacts reveal">
+            <div class="container">
+                <div class="contacts-shell">
+                    <div class="contacts-shell__content">
+                        <p class="eyebrow">Контакты</p>
+                        <h2 class="section-heading__title">Напишите, и подберём формат под вашу задачу</h2>
+                        <p class="section-heading__text">
+                            Поможем выбрать конфигурацию записи, подскажем, какой тариф лучше подойдёт под reels,
+                            экспертный ролик или полноценный видеоподкаст.
+                        </p>
+                        <a href="https://wa.me/79894590468" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Связаться в WhatsApp</a>
                     </div>
-                </div>
-                <div class="montage-card">
-                    <h3 class="montage-card__title">МУЛЬТИКАМЕРНЫЙ МОНТАЖ</h3>
-                    <ul class="montage-card__list">
-                        <li>СИНХРОНИЗАЦИЯ АУДИОДОРОЖЕК С МИКРОФОНА</li>
-                        <li>УДАЛЕНИЯ БРАКА И ВЫБОР ЛУЧШИХ ДУБЛЕЙ</li>
-                        <li>ОБРАБОТКА ГОЛОСА</li>
-                        <li>ЦВЕТОКОРРЕКЦИЯ</li>
-                        <li>ЗАСТАВКА ПО ШАБЛОНУ</li>
-                    </ul>
-                    <div class="montage-card__price">
-                        <span class="price__amount">от 15000 ₽</span>
-                        <span class="price__label">ЗА 1 ЧАС ГОТОВОГО ВИДЕО</span>
+
+                    <div class="contacts-shell__links">
+                        <a href="https://wa.me/79894590468" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-link__label">WhatsApp</span>
+                            <strong class="contact-link__value">8 (989) 459-04-68</strong>
+                        </a>
+                        <a href="https://www.instagram.com/lumastudio_sf?igsh=MTlzbHU0bW81b2JreA==" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-link__label">Instagram</span>
+                            <strong class="contact-link__value">@lumastudio_sf</strong>
+                        </a>
+                        <a href="https://youtube.com/@lumastudi?si=6f5TK0lcHiJ7FunP" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-link__label">YouTube</span>
+                            <strong class="contact-link__value">@lumastudi</strong>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="section__footer">
-                <p class="montage__note">СНИМАЕМ В 4K ПРОФИЛЕ S-LOG</p>
-                <p class="montage__note">ЭТО ПОЗВОЛЯЕТ МАКСИМАЛЬНО ИСПОЛЬЗОВАТЬ ВОЗМОЖНОСТИ ЦВЕТОКОРРЕКЦИИ</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Testimonial Section -->
-    <section class="section section--testimonial">
-        <div class="container">
-            <div class="testimonial">
-                <div class="testimonial__text">"Профессиональная команда с достаточным количеством высококачественного оборудования. Все прошло четко, результат превзошел все наши ожидания. В студии следят за чистотой, комфортно, стильно и вкусный кофе. Однозначно рекомендую."</div>
-                <div class="testimonial__author">Елена Кирсанова</div>
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p class="site-footer__copy">© 2026 Luma Studio. Статический сайт для GitHub Pages.</p>
+            <div class="site-footer__socials">
+                <a href="https://www.instagram.com/lumastudio_sf?igsh=MTlzbHU0bW81b2JreA==" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://youtube.com/@lumastudi?si=6f5TK0lcHiJ7FunP" target="_blank" rel="noopener noreferrer">YouTube</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Contacts Section -->
-    <section id="contacts" class="section section--contacts">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">КОНТАКТЫ</h2>
-            </div>
-            <div class="contacts-grid">
-                <div class="contacts-info">
-                    <a href="tel:+79773792402" class="contacts__phone">+7 (977) 379-24-02</a>
-                    <p class="contacts__label">Студия видеозаписи полного цикла Gaffer-Studio</p>
-                    <p class="contacts__address">находится по адресу:</p>
-                    <p class="contacts__address-value">Москва, Научный проезд, дом, 6 (м. Калужская)</p>
-                    <p class="contacts__hours">Работаем для вас с 10:00 до 21:00</p>
-                    <p class="contacts__days">Ежедневно. Без перерывов.</p>
-                </div>
-                <div class="contacts-map">
-                    <div class="map-placeholder">[КАРТА ЯНДЕКС/GOOGLE]</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer__text">© 2024 LUMA. Все права защищены.</p>
         </div>
     </footer>
 
