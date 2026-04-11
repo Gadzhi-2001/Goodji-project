@@ -7,7 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileMenuOverlay = document.querySelector(".mobile-menu__overlay");
     const navLinks = document.querySelectorAll('a[href^="#"]');
     const revealItems = document.querySelectorAll(".reveal");
+    const videoLaunchers = document.querySelectorAll(".video-launch");
+    const videoModal = document.querySelector(".video-modal");
+    const videoModalIframe = document.querySelector(".video-modal__iframe");
+    const videoModalTitle = document.querySelector(".video-modal__title");
+    const videoModalCloseTargets = document.querySelectorAll("[data-video-close]");
+    const videoModalCloseButton = document.querySelector(".video-modal__close");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let lastFocusedVideoTrigger = null;
 
     const setHeaderState = () => {
         if (!header) {
@@ -58,8 +65,61 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenuOverlay.addEventListener("click", closeMenu);
     }
 
+    const openVideoModal = (trigger) => {
+        if (!videoModal || !videoModalIframe || !videoModalTitle) {
+            return;
+        }
+
+        const videoSrc = trigger.getAttribute("data-video-src");
+        const videoTitle = trigger.getAttribute("data-video-title") || "Видеокейс";
+
+        if (!videoSrc) {
+            return;
+        }
+
+        lastFocusedVideoTrigger = trigger;
+        body.classList.add("video-open");
+        videoModal.hidden = false;
+        videoModal.classList.add("is-open");
+        videoModal.setAttribute("aria-hidden", "false");
+        videoModalTitle.textContent = videoTitle;
+        videoModalIframe.setAttribute("title", videoTitle);
+        videoModalIframe.setAttribute("src", videoSrc);
+        videoModalCloseButton?.focus();
+    };
+
+    const closeVideoModal = () => {
+        if (!videoModal || !videoModalIframe) {
+            return;
+        }
+
+        body.classList.remove("video-open");
+        videoModal.classList.remove("is-open");
+        videoModal.setAttribute("aria-hidden", "true");
+        videoModalIframe.removeAttribute("src");
+        videoModalIframe.setAttribute("title", "");
+        videoModal.hidden = true;
+
+        if (lastFocusedVideoTrigger instanceof HTMLElement) {
+            lastFocusedVideoTrigger.focus();
+        }
+    };
+
+    videoLaunchers.forEach((trigger) => {
+        trigger.addEventListener("click", () => openVideoModal(trigger));
+    });
+
+    videoModalCloseTargets.forEach((target) => {
+        target.addEventListener("click", closeVideoModal);
+    });
+
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+            if (videoModal?.classList.contains("is-open")) {
+                closeVideoModal();
+                return;
+            }
+
             closeMenu();
         }
     });

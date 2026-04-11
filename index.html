@@ -13,18 +13,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Prata&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css?v=20260324-2">
+    <link rel="stylesheet" href="./style.css?v=20260330-1">
 </head>
 <body>
     <header class="site-header">
         <div class="container site-header__inner">
             <a href="#top" class="brand" aria-label="Luma Studio">
-                <img src="./index.png?v=20260324-2" alt="" class="brand__image" width="547" height="547">
+                <img src="./index.png?v=20260330-1" alt="" class="brand__image" width="547" height="547">
             </a>
 
             <nav class="nav nav--desktop" aria-label="Основная навигация">
                 <a href="#studio" class="nav__link">О студии</a>
                 <a href="#formats" class="nav__link">Форматы</a>
+                <a href="#cases" class="nav__link">Кейсы</a>
                 <a href="#equipment" class="nav__link">Оборудование</a>
                 <a href="#pricing" class="nav__link">Тарифы</a>
                 <a href="#contacts" class="nav__link">Контакты</a>
@@ -45,7 +46,7 @@
             <div class="mobile-menu__panel">
                 <div class="mobile-menu__header">
                     <a href="#top" class="brand brand--compact" aria-label="Luma Studio">
-                        <img src="./index.png?v=20260324-2" alt="" class="brand__image" width="547" height="547">
+                        <img src="./index.png?v=20260330-1" alt="" class="brand__image" width="547" height="547">
                     </a>
                     <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">&times;</button>
                 </div>
@@ -53,6 +54,7 @@
                 <nav class="nav nav--mobile" aria-label="Мобильная навигация">
                     <a href="#studio" class="nav__link">О студии</a>
                     <a href="#formats" class="nav__link">Форматы</a>
+                    <a href="#cases" class="nav__link">Кейсы</a>
                     <a href="#equipment" class="nav__link">Оборудование</a>
                     <a href="#pricing" class="nav__link">Тарифы</a>
                     <a href="#contacts" class="nav__link">Контакты</a>
@@ -72,7 +74,7 @@
     <main>
         <section class="hero" id="top">
             <div class="hero__media">
-                <img src="./images/hero.jpg?v=20260324-2" alt="Интерьер студии Luma Studio" fetchpriority="high" decoding="async" width="1600" height="900">
+                <img src="./images/hero.jpg?v=20260330-1" alt="Интерьер студии Luma Studio" fetchpriority="high" decoding="async" width="1600" height="900">
             </div>
             <div class="hero__veil"></div>
 
@@ -123,10 +125,10 @@
                 <div class="studio-layout">
                     <div class="studio-gallery">
                         <figure class="media-card media-card--large">
-                            <img src="./images/studio-01.jpg?v=20260324-2" alt="Студия Luma Studio с несколькими камерами" loading="lazy" decoding="async" width="1024" height="768">
+                            <img src="./images/studio-01.jpg?v=20260330-1" alt="Студия Luma Studio с несколькими камерами" loading="lazy" decoding="async" width="1024" height="768">
                         </figure>
                         <figure class="media-card media-card--offset">
-                            <img src="./images/studio-02.jpg?v=20260324-2" alt="Подкаст-зона Luma Studio" loading="lazy" decoding="async" width="1200" height="675">
+                            <img src="./images/studio-02.jpg?v=20260330-1" alt="Подкаст-зона Luma Studio" loading="lazy" decoding="async" width="1200" height="675">
                         </figure>
                     </div>
 
@@ -214,6 +216,110 @@
             </div>
         </section>
 
+        <section id="cases" class="section section--cases reveal">
+            <div class="container">
+                <div class="section-heading section-heading--split">
+                    <div>
+                        <p class="eyebrow">Кейсы</p>
+                        <h2 class="section-heading__title">На сайте можно показывать и реальные видео</h2>
+                    </div>
+                    <p class="section-heading__text">
+                        Ниже уже встроены актуальные выпуски с YouTube-канала Luma Studio. Дальше секцию можно
+                        пополнять по тому же шаблону: добавлять новый ролик, описание и кнопку на выпуск.
+                    </p>
+                </div>
+
+                <div class="case-grid">
+                    <article class="case-card">
+                        <div class="case-card__frame">
+                            <button
+                                class="video-launch"
+                                type="button"
+                                data-video-src="https://www.youtube-nocookie.com/embed/s9Qomcn-RSg?autoplay=1&amp;rel=0"
+                                data-video-title="От идеи к своему продукту: путь основателя Chill Coffee"
+                                aria-label="Открыть видеокейс От идеи к своему продукту: путь основателя Chill Coffee"
+                            >
+                                <img
+                                    src="https://i.ytimg.com/vi/s9Qomcn-RSg/hqdefault.jpg"
+                                    alt="Превью кейса От идеи к своему продукту: путь основателя Chill Coffee"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="480"
+                                    height="360"
+                                >
+                                <span class="video-launch__play" aria-hidden="true"></span>
+                                <span class="video-launch__label">Смотреть кейс</span>
+                            </button>
+                        </div>
+                        <div class="case-card__body">
+                            <p class="case-card__meta">Видеоподкаст • 1 час 23 минуты</p>
+                            <h3 class="case-card__title">От идеи к своему продукту: путь основателя Chill Coffee</h3>
+                            <p class="case-card__text">
+                                Разговорный выпуск о запуске продукта, росте проекта и предпринимательском пути.
+                                Хороший пример подкаста, где важно сохранить естественную беседу и чистую картинку.
+                            </p>
+                            <div class="case-card__actions">
+                                <a href="https://www.youtube.com/watch?v=s9Qomcn-RSg" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Открыть выпуск</a>
+                                <a href="https://wa.me/79894590468" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Хочу похожий формат</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-card">
+                        <div class="case-card__frame">
+                            <button
+                                class="video-launch"
+                                type="button"
+                                data-video-src="https://www.youtube-nocookie.com/embed/Cdt1qdpyQDA?autoplay=1&amp;rel=0"
+                                data-video-title="Бизнес в 2026. Маркетинг умирает или развивается?"
+                                aria-label="Открыть видеокейс Бизнес в 2026. Маркетинг умирает или развивается?"
+                            >
+                                <img
+                                    src="https://i.ytimg.com/vi/Cdt1qdpyQDA/hqdefault.jpg"
+                                    alt="Превью кейса Бизнес в 2026. Маркетинг умирает или развивается?"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="480"
+                                    height="360"
+                                >
+                                <span class="video-launch__play" aria-hidden="true"></span>
+                                <span class="video-launch__label">Смотреть кейс</span>
+                            </button>
+                        </div>
+                        <div class="case-card__body">
+                            <p class="case-card__meta">Интервью • 50 минут</p>
+                            <h3 class="case-card__title">Бизнес в 2026. Маркетинг умирает или развивается?</h3>
+                            <p class="case-card__text">
+                                Экспертная беседа в студийном сетапе, которая показывает, как аккуратно на сайте
+                                могут смотреться длинные интервью, дискуссии и разговорные выпуски для бренда.
+                            </p>
+                            <div class="case-card__actions">
+                                <a href="https://www.youtube.com/watch?v=Cdt1qdpyQDA" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Открыть выпуск</a>
+                                <a href="https://wa.me/79894590468" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Обсудить запись</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <aside class="case-cta" aria-label="Информация о новых видеокейсах">
+                        <div>
+                            <p class="eyebrow">Новые видео</p>
+                            <h3 class="case-cta__title">Секцию легко пополнять после каждой съёмки</h3>
+                            <p class="case-cta__text">
+                                Для нового кейса достаточно продублировать карточку, вставить ссылку на YouTube-ролик
+                                и коротко описать задачу выпуска. Вся адаптация и визуальная логика уже готовы.
+                            </p>
+                            <ul class="list">
+                                <li>Работает на GitHub Pages без бэкенда</li>
+                                <li>Видео загружаются лениво и не тормозят первый экран</li>
+                                <li>Подходит для подкастов, интервью и экспертных выпусков</li>
+                            </ul>
+                        </div>
+                        <a href="https://youtube.com/@lumastudi?si=6f5TK0lcHiJ7FunP" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Смотреть YouTube-канал</a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
         <section id="equipment" class="section section--equipment reveal">
             <div class="container">
                 <div class="section-heading">
@@ -227,7 +333,7 @@
 
                 <div class="equipment-grid">
                     <article class="equipment-card">
-                        <img src="./images/gear-camera.jpg?v=20260324-2" alt="Камера Sony A7C" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <img src="./images/gear-camera.jpg?v=20260330-1" alt="Камера Sony A7C" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
                         <div class="equipment-card__body">
                             <p class="equipment-card__label">Камера</p>
                             <h3>Sony A7C</h3>
@@ -241,7 +347,7 @@
                     </article>
 
                     <article class="equipment-card">
-                        <img src="./images/gear-mic.jpg?v=20260324-2" alt="Микрофон Shure MV7" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <img src="./images/gear-mic.jpg?v=20260330-1" alt="Микрофон Shure MV7" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
                         <div class="equipment-card__body">
                             <p class="equipment-card__label">Звук</p>
                             <h3>Shure MV7</h3>
@@ -255,7 +361,7 @@
                     </article>
 
                     <article class="equipment-card">
-                        <img src="./images/gear-wireless.jpg?v=20260324-2" alt="Беспроводная система DJI Mic 3" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <img src="./images/gear-wireless.jpg?v=20260330-1" alt="Беспроводная система DJI Mic 3" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
                         <div class="equipment-card__body">
                             <p class="equipment-card__label">Беспроводной звук</p>
                             <h3>DJI Mic 3</h3>
@@ -269,7 +375,7 @@
                     </article>
 
                     <article class="equipment-card">
-                        <img src="./images/gear-light.jpg?v=20260324-2" alt="Студийный свет Godox" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
+                        <img src="./images/gear-light.jpg?v=20260330-1" alt="Студийный свет Godox" class="equipment-card__image" loading="lazy" decoding="async" width="720" height="900">
                         <div class="equipment-card__body">
                             <p class="equipment-card__label">Свет</p>
                             <h3>Godox</h3>
@@ -444,6 +550,25 @@
         </section>
     </main>
 
+    <div class="video-modal" id="video-modal" aria-hidden="true" hidden>
+        <div class="video-modal__backdrop" data-video-close></div>
+        <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+            <div class="video-modal__header">
+                <h2 class="video-modal__title" id="video-modal-title">Видеокейс</h2>
+                <button class="video-modal__close" type="button" aria-label="Закрыть видеокейс" data-video-close>&times;</button>
+            </div>
+            <div class="video-modal__frame">
+                <iframe
+                    class="video-modal__iframe"
+                    title=""
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
     <footer class="site-footer">
         <div class="container site-footer__inner">
             <p class="site-footer__copy">© 2026 Luma Studio. Статический сайт для GitHub Pages.</p>
@@ -454,6 +579,6 @@
         </div>
     </footer>
 
-    <script src="./script.js?v=20260324-2"></script>
+    <script src="./script.js?v=20260330-1"></script>
 </body>
 </html>

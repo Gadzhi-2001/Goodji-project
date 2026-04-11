@@ -30,12 +30,20 @@ test("desktop layout and core content render correctly", async ({ page }) => {
   await expect(page.locator('a[href="https://wa.me/79894590468"]').first()).toBeVisible();
   await expect(page.locator("#studio")).toBeVisible();
   await expect(page.locator("#formats")).toBeVisible();
+  await expect(page.locator("#cases")).toBeVisible();
   await expect(page.locator("#equipment")).toBeVisible();
   await expect(page.locator("#pricing")).toBeVisible();
   await expect(page.locator("#contacts")).toBeVisible();
   await expect(page.locator(".format-card")).toHaveCount(3);
+  await expect(page.locator(".case-card")).toHaveCount(2);
   await expect(page.locator(".pricing-card")).toHaveCount(5);
   await expect(page.locator(".equipment-card")).toHaveCount(4);
+
+  await page.locator(".video-launch").first().click();
+  await expect(page.locator(".video-modal.is-open")).toBeVisible();
+  await expect(page.locator(".video-modal__iframe")).toHaveAttribute("src", /youtube-nocookie\.com\/embed\//);
+  await page.locator(".video-modal__close").click();
+  await expect(page.locator(".video-modal")).toBeHidden();
 
   await assertNoHorizontalOverflow(page);
   await page.screenshot({
@@ -53,7 +61,7 @@ test("tablet menu works and layout stays stable", async ({ page }) => {
   await expect(menuToggle).toBeVisible();
   await menuToggle.click();
   await expect(page.locator(".mobile-menu.is-open")).toBeVisible();
-  await expect(page.locator(".nav--mobile .nav__link")).toHaveCount(5);
+  await expect(page.locator(".nav--mobile .nav__link")).toHaveCount(6);
 
   await page.screenshot({
     path: path.join(artifactsDir, "tablet-menu-open.png"),
