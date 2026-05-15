@@ -227,28 +227,12 @@ select {
 }
 
 .brand__text {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 8px;
-}
-
-.brand__text-name {
     font-family: "Cinzel", serif;
     font-weight: 700;
-    font-style: normal;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text);
-    letter-spacing: 0.08em;
-}
-
-.brand__text-sub {
-    font-family: "Onest", sans-serif;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
 }
 
 .nav {
