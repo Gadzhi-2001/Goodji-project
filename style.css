@@ -228,9 +228,9 @@ select {
 
 .brand__text {
     display: flex;
-    flex-direction: column;
-    line-height: 1;
-    gap: 4px;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
 }
 
 .brand__text-name {
