@@ -226,16 +226,28 @@ select {
     text-decoration: none;
 }
 
-.brand__image {
-    width: 58px;
-    height: 58px;
-    object-fit: contain;
-    flex-shrink: 0;
+.brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 4px;
 }
 
-.brand--compact .brand__image {
-    width: 48px;
-    height: 48px;
+.brand__text-name {
+    font-family: "Prata", serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.brand__text-sub {
+    font-family: "Onest", sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
 }
 
 .nav {
