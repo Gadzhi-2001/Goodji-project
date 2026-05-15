@@ -877,6 +877,100 @@ select {
     width: 100%;
 }
 
+.reels-block {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+}
+
+.reels-block__header {
+    margin-bottom: 32px;
+}
+
+.reels-block__title {
+    font-family: "Prata", serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    color: var(--text);
+    margin: 8px 0 0;
+}
+
+.reel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.reel-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.reel-card:hover {
+    border-color: rgba(243, 226, 195, 0.35);
+    transform: translateY(-3px);
+}
+
+.reel-card__frame {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.reel-card__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 400ms ease;
+}
+
+.reel-card:hover .reel-card__frame img {
+    transform: scale(1.04);
+}
+
+.reel-card__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.reel-card__body {
+    padding: 14px 16px 16px;
+}
+
+.reel-card__author {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 4px;
+}
+
+.reel-card__title {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 0;
+}
+
 .video-modal {
     position: fixed;
     inset: 0;
@@ -1236,6 +1330,12 @@ select {
     }
 }
 
+@media (max-width: 960px) {
+    .reel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 920px) {
     .hero__container {
         padding-top: calc(var(--header-height) + 52px);
@@ -1360,6 +1460,13 @@ select {
     .site-footer__inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .reel-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 }
 
