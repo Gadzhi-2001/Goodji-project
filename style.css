@@ -1196,6 +1196,10 @@ select {
     margin-top: 28px;
 }
 
+.pricing-grid--two .pricing-card .btn {
+    margin-top: 48px;
+}
+
 .contacts-shell {
     position: relative;
     overflow: hidden;
