@@ -1338,11 +1338,24 @@ select {
 }
 
 .faq-item {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 24px 48px;
-    padding: 28px 0;
     border-bottom: 1px solid var(--line);
+}
+
+.faq-item__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-item__btn:hover .faq-item__q {
+    color: var(--accent);
 }
 
 .faq-item__q {
@@ -1352,13 +1365,72 @@ select {
     font-weight: 600;
     color: var(--text);
     line-height: 1.45;
+    transition: color var(--transition);
+}
+
+.faq-item__icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.faq-item__icon::before,
+.faq-item__icon::after {
+    content: '';
+    position: absolute;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.faq-item__icon::before {
+    width: 10px;
+    height: 1.5px;
+}
+
+.faq-item__icon::after {
+    width: 1.5px;
+    height: 10px;
+}
+
+.faq-item.is-open .faq-item__icon {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(45deg);
+}
+
+.faq-item.is-open .faq-item__icon::before,
+.faq-item.is-open .faq-item__icon::after {
+    background: #0b0d0d;
+}
+
+.faq-item__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 320ms ease;
+}
+
+.faq-item.is-open .faq-item__body {
+    grid-template-rows: 1fr;
+}
+
+.faq-item__body-inner {
+    overflow: hidden;
 }
 
 .faq-item__a {
     margin: 0;
+    padding-bottom: 24px;
     color: var(--muted);
     font-size: 0.97rem;
     line-height: 1.72;
+    max-width: 68ch;
 }
 
 .faq-cta {
@@ -1549,12 +1621,6 @@ select {
 
     .section--studio .section-heading {
         margin-bottom: 40px;
-    }
-
-    .faq-item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 22px 0;
     }
 
     .faq-cta {
