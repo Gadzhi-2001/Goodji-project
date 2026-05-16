@@ -1490,6 +1490,10 @@ select {
         --header-height: 78px;
     }
 
+    .section--studio .section-heading {
+        margin-bottom: 40px;
+    }
+
     .container {
         width: min(var(--container), calc(100% - 28px));
     }
