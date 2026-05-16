@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Luma Studio — Визитки</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0b0d0d;
+            --text: #f6f0e4;
+            --muted: rgba(246,240,228,0.55);
+            --accent: #d3ac74;
+            --line: rgba(211,172,116,0.18);
+        }
+
+        body {
+            background: #2a2a2a;
+            font-family: "Onest", sans-serif;
+            padding: 48px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        h2 {
+            color: rgba(255,255,255,0.4);
+            font-family: "Onest", sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .pair {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ─── РАЗМЕР ВИЗИТКИ: 90×50 мм ─── */
+        .card {
+            width: 90mm;
+            height: 50mm;
+            position: relative;
+            overflow: hidden;
+            border-radius: 3px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        }
+
+        /* ════ ЛИЦЕВАЯ СТОРОНА ════ */
+        .card--front {
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 7mm 8mm;
+        }
+
+        .card--front::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 0% 0%, rgba(211,172,116,0.12), transparent 60%),
+                radial-gradient(ellipse at 100% 100%, rgba(211,172,116,0.06), transparent 55%);
+            pointer-events: none;
+        }
+
+        .card--front::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--accent) 40%, transparent);
+        }
+
+        .front-top {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .front-eyebrow {
+            font-size: 6.5px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .front-logo {
+            font-family: "Cinzel", serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.06em;
+            line-height: 1;
+        }
+
+        .front-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .front-tagline {
+            font-size: 7px;
+            color: var(--muted);
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+            max-width: 38mm;
+        }
+
+        .front-city {
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        /* ════ ОБОРОТНАЯ СТОРОНА ════ */
+        .card--back {
+            background: var(--bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 7mm 8mm;
+            gap: 0;
+        }
+
+        .card--back::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 100% 0%, rgba(211,172,116,0.10), transparent 60%);
+            pointer-events: none;
+        }
+
+        .card--back::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--accent) 40%, transparent);
+        }
+
+        .back-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-right: 6mm;
+            border-right: 1px solid var(--line);
+        }
+
+        .back-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .back-role {
+            font-size: 7px;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            margin-top: 3px;
+        }
+
+        .back-logo-small {
+            font-family: "Cinzel", serif;
+            font-size: 9px;
+            font-weight: 600;
+            color: rgba(246,240,228,0.3);
+            letter-spacing: 0.1em;
+        }
+
+        .back-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4.5px;
+            padding-left: 6mm;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .contact-label {
+            font-size: 5.5px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        .contact-value {
+            font-size: 8px;
+            font-weight: 400;
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── UI ─── */
+        .section-label {
+            margin-bottom: 12px;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: var(--accent);
+            color: #0b0d0d;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-family: "Onest", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            box-shadow: 0 4px 20px rgba(211,172,116,0.4);
+        }
+
+        .note {
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* ─── ПЕЧАТЬ ─── */
+        @media print {
+            body {
+                background: white;
+                padding: 10mm;
+                gap: 8mm;
+            }
+
+            h2, .note, .print-btn { display: none; }
+
+            .pair {
+                gap: 6mm;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 0.5px solid #ccc;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align:center">
+        <h2 style="margin-bottom:8px">Luma Studio — Дизайн визиток</h2>
+        <p class="note">Размер: 90 × 50 мм · Лицевая и оборотная стороны</p>
+    </div>
+
+    <!-- ВАРИАНТ 1: Универсальная (без имени) -->
+    <div>
+        <h2 class="section-label">Вариант 1 — студийная (без имени)</h2>
+        <div class="pair">
+
+            <!-- Лицевая -->
+            <div class="card card--front">
+                <div class="front-top">
+                    <span class="front-eyebrow">Студия записи</span>
+                    <div class="front-logo">Luma Studio</div>
+                </div>
+                <div class="front-bottom">
+                    <p class="front-tagline">Подкасты · Reels · Интервью<br>Монтаж и постпродакшн</p>
+                    <span class="front-city">Махачкала</span>
+                </div>
+            </div>
+
+            <!-- Оборотная -->
+            <div class="card card--back">
+                <div class="back-left">
+                    <div>
+                        <p class="back-name">Luma Studio</p>
+                        <p class="back-role">Студия записи и постпродакшн</p>
+                    </div>
+                    <div class="back-logo-small">LUMA</div>
+                </div>
+                <div class="back-right">
+                    <div class="contact-row">
+                        <span class="contact-label">WhatsApp</span>
+                        <span class="contact-value">8 (989) 459-04-68</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Instagram</span>
+                        <span class="contact-value">@lumastudio_sf</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Сайт</span>
+                        <span class="contact-value">luma-media.ru</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Адрес</span>
+                        <span class="contact-value">ул. М. Ярагского, 59/2</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ВАРИАНТ 2: Личная (с именем/должностью) -->
+    <div>
+        <h2 class="section-label">Вариант 2 — личная (с именем)</h2>
+        <div class="pair">
+
+            <!-- Лицевая -->
+            <div class="card card--front">
+                <div class="front-top">
+                    <span class="front-eyebrow">Студия записи</span>
+                    <div class="front-logo">Luma Studio</div>
+                </div>
+                <div class="front-bottom">
+                    <p class="front-tagline">Подкасты · Reels · Интервью<br>Монтаж и постпродакшн</p>
+                    <span class="front-city">Махачкала</span>
+                </div>
+            </div>
+
+            <!-- Оборотная с именем -->
+            <div class="card card--back">
+                <div class="back-left">
+                    <div>
+                        <p class="back-name">Имя Фамилия</p>
+                        <p class="back-role">Основатель / Оператор</p>
+                    </div>
+                    <div class="back-logo-small">LUMA</div>
+                </div>
+                <div class="back-right">
+                    <div class="contact-row">
+                        <span class="contact-label">WhatsApp</span>
+                        <span class="contact-value">8 (989) 459-04-68</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Instagram</span>
+                        <span class="contact-value">@lumastudio_sf</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Сайт</span>
+                        <span class="contact-value">luma-media.ru</span>
+                    </div>
+                    <div class="contact-row">
+                        <span class="contact-label">Адрес</span>
+                        <span class="contact-value">ул. М. Ярагского, 59/2</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <p class="note">Чтобы распечатать — нажмите кнопку ниже или Ctrl+P / ⌘P<br>Формат А4, поля минимальные, масштаб 100%</p>
+
+    <button class="print-btn" onclick="window.print()">Распечатать</button>
+
+</body>
+</html>
