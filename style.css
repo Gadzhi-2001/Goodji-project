@@ -1227,11 +1227,12 @@ select {
 
 .pricing-card .btn {
     width: 100%;
-    margin-top: 28px;
+    margin-top: auto;
+    padding-top: 28px;
 }
 
 .pricing-grid--two .pricing-card .btn {
-    margin-top: 48px;
+    padding-top: 48px;
 }
 
 .contacts-shell {
