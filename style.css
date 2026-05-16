@@ -102,7 +102,7 @@ select {
 }
 
 .section--studio .section-heading {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 }
 
 .section-heading--split {
@@ -839,7 +839,8 @@ select {
 .case-card__title,
 .case-cta__title {
     margin: 14px 0 0;
-    font-family: "Prata", serif;
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
     font-size: 1.55rem;
     line-height: 1.22;
 }
@@ -847,6 +848,7 @@ select {
 .case-card__text,
 .case-cta__text {
     margin: 16px 0 0;
+    font-family: "Onest", sans-serif;
     color: var(--muted);
 }
 
