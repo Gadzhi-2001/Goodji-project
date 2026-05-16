@@ -1222,17 +1222,17 @@ select {
 }
 
 .pricing-card .list {
+    flex: 1;
     margin-bottom: 0;
 }
 
 .pricing-card .btn {
     width: 100%;
-    margin-top: auto;
-    padding-top: 28px;
+    margin-top: 28px;
 }
 
 .pricing-grid--two .pricing-card .btn {
-    padding-top: 48px;
+    margin-top: 48px;
 }
 
 .contacts-shell {
