@@ -1187,9 +1187,13 @@ select {
     line-height: 1.65;
 }
 
+.pricing-card .list {
+    margin-bottom: 0;
+}
+
 .pricing-card .btn {
     width: 100%;
-    margin-top: auto;
+    margin-top: 28px;
 }
 
 .contacts-shell {
