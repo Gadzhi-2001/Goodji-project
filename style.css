@@ -1431,6 +1431,12 @@ select {
     .pill-list {
         justify-content: flex-start;
     }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 @media (max-width: 720px) {
