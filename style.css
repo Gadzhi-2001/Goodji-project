@@ -1069,34 +1069,68 @@ select {
     border: 0;
 }
 
-.equipment-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.equip-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
 }
 
-.equipment-card {
+.equip-row {
     display: grid;
-    grid-template-columns: minmax(180px, 0.82fr) minmax(0, 1fr);
-    min-height: 100%;
+    grid-template-columns: 220px 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
 }
 
-.equipment-card__image {
-    height: 100%;
-    object-fit: cover;
+.equip-row__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
 }
 
-.equipment-card__body {
-    padding: 28px;
-}
-
-.equipment-card h3 {
+.equip-row__name {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 700;
     margin: 0;
-    font-size: 1.6rem;
-    font-family: "Onest", sans-serif;
+    color: var(--text);
+    line-height: 1.2;
 }
 
-.equipment-card p {
-    margin: 14px 0 0;
+.equip-row__desc {
+    margin: 0;
     color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.equip-row__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.equip-row__features li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.equip-row__features li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .equipment-extras {
@@ -1414,6 +1448,15 @@ select {
         font-size: clamp(3rem, 7vw, 4.6rem);
     }
 
+    .equip-row {
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+    }
+
+    .equip-row__features {
+        grid-column: 2;
+    }
+
     .equipment-grid,
     .case-grid,
     .pricing-grid--two {
@@ -1496,6 +1539,16 @@ select {
     .media-card--offset {
         width: 100%;
         transform: none;
+    }
+
+    .equip-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 0;
+    }
+
+    .equip-row__features {
+        grid-column: auto;
     }
 
     .equipment-card {
