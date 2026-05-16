@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luma Studio — QR-код для печати</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: "Onest", sans-serif;
+        }
+
+        .card {
+            width: 148mm;
+            min-height: 210mm;
+            background: #0b0d0d;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* декоративные линии */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d3ac74, transparent);
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d3ac74, transparent);
+        }
+
+        /* верхний блок */
+        .header {
+            text-align: center;
+            width: 100%;
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #d3ac74;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            font-family: "Cinzel", serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #f6f0e4;
+            letter-spacing: 0.08em;
+            line-height: 1;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #d3ac74;
+            margin: 18px auto;
+            opacity: 0.5;
+        }
+
+        /* QR блок */
+        .qr-wrap {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 0 0 1px rgba(211, 172, 116, 0.2), 0 20px 60px rgba(0,0,0,0.6);
+        }
+
+        .qr-wrap img {
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* нижний блок */
+        .footer {
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f6f0e4;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .sub {
+            font-size: 12px;
+            color: rgba(200, 192, 178, 0.7);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .url {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #d3ac74;
+            letter-spacing: 0.04em;
+            border: 1px solid rgba(211, 172, 116, 0.35);
+            padding: 7px 18px;
+            border-radius: 40px;
+        }
+
+        /* стиль для печати */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+
+            .card {
+                border-radius: 0;
+                width: 148mm;
+                min-height: 210mm;
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+
+            @page {
+                size: A5 portrait;
+                margin: 0;
+            }
+        }
+
+        /* кнопка печати (не печатается) */
+        .print-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: #d3ac74;
+            color: #0b0d0d;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-family: "Onest", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+        }
+
+        @media print {
+            .print-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <p class="eyebrow">Студия записи подкастов и Reels</p>
+            <div class="logo">Luma Studio</div>
+            <div class="divider"></div>
+        </div>
+
+        <div class="qr-wrap">
+            <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https://www.luma-media.ru&color=0b0d0d&bgcolor=ffffff&margin=0&qzone=1"
+                alt="QR-код сайта Luma Studio"
+                width="200"
+                height="200"
+            >
+        </div>
+
+        <div class="footer">
+            <p class="cta">Забронируйте студию онлайн</p>
+            <p class="sub">Наведите камеру телефона на QR-код<br>или перейдите по ссылке</p>
+            <span class="url">luma-media.ru</span>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Распечатать</button>
+
+</body>
+</html>
