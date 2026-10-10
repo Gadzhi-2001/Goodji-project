@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Бронирование — Luma Studio, Махачкала</title>
+    <meta name="description" content="Забронируйте студию подкастов и reels в Махачкале онлайн: аренда от 2 000 ₽/час, съёмка подкаста на 3 камеры, подкаст под ключ с монтажом.">
+    <meta name="theme-color" content="#0a0908">
+    <link rel="icon" href="data:,">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luma Studio — забронировать студию">
+    <meta property="og:description" content="Свободное время онлайн. Подкасты, reels и интервью в Махачкале.">
+    <meta property="og:image" content="https://www.luma-media.ru/book/studio-2.jpg">
+    <link rel="canonical" href="https://www.luma-media.ru/book/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://kyacbhvnvbjwyjxdsgqu.supabase.co" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./book.css?v=20261010">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="../" aria-label="Luma Studio — на главную"><img src="../images/logo-luma.png" alt="Luma Studio" width="459" height="253"></a>
+        <a class="topbar__link" href="https://wa.me/79887727222" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img class="hero__img" src="./studio-2.jpg" alt="Запись подкаста в Luma Studio" width="1400" height="798" fetchpriority="high">
+            <div class="hero__veil"></div>
+            <div class="hero__content">
+                <p class="eyebrow">Студия подкастов · Махачкала</p>
+                <h1 class="hero__title">Забронируйте студию.</h1>
+                <p class="hero__text">Выберите формат и свободное время — подтвердим бронь в течение часа.</p>
+                <a class="btn btn--primary hero__cta" href="#booking">Выбрать время</a>
+            </div>
+        </section>
+
+        <section class="booking" id="booking" aria-label="Бронирование">
+            <div class="booking__loading" id="booking-loading">Загружаем свободное время…</div>
+            <div class="booking__error" id="booking-error" hidden>
+                <p>Не получилось загрузить расписание. Напишите нам — подберём время вручную.</p>
+                <a class="btn btn--primary" href="https://wa.me/79887727222" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+            </div>
+
+            <form class="booking__form" id="booking-form" hidden novalidate>
+                <fieldset class="step" id="step-location" hidden>
+                    <legend class="step__title"><span class="step__num">·</span> Где снимаем?</legend>
+                    <div class="choices choices--cards" data-role="locations"></div>
+                </fieldset>
+
+                <fieldset class="step">
+                    <legend class="step__title"><span class="step__num">1</span> Что снимаем?</legend>
+                    <div class="choices choices--cards" data-role="services"></div>
+                </fieldset>
+
+                <fieldset class="step" id="step-extras" hidden>
+                    <legend class="step__title"><span class="step__num">+</span> Что нужно?</legend>
+                    <p class="step__hint">Отметьте всё, что пригодится. Чего нет в списке — напишите в комментарии.</p>
+                    <div class="choices choices--chips" data-role="extras"></div>
+                </fieldset>
+
+                <fieldset class="step" id="step-duration" hidden>
+                    <legend class="step__title"><span class="step__num">2</span> Сколько времени?</legend>
+                    <div class="choices choices--chips" data-role="options"></div>
+                </fieldset>
+
+                <fieldset class="step" id="step-date" hidden>
+                    <legend class="step__title"><span class="step__num">3</span> Когда?</legend>
+                    <div class="dates" data-role="dates"></div>
+                    <div class="choices choices--times" data-role="times"></div>
+                    <p class="step__hint" data-role="slots-note" hidden></p>
+                </fieldset>
+
+                <fieldset class="step" id="step-contacts" hidden>
+                    <legend class="step__title"><span class="step__num">4</span> Контакты</legend>
+                    <label class="field">
+                        <span class="field__label">Имя</span>
+                        <input class="field__input" name="name" autocomplete="name" maxlength="60" required>
+                    </label>
+                    <label class="field">
+                        <span class="field__label">Телефон</span>
+                        <input class="field__input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+                    </label>
+                    <label class="field">
+                        <span class="field__label" data-role="comment-label">Комментарий <span class="field__optional">— необязательно</span></span>
+                        <textarea class="field__input field__input--area" name="comment" rows="3" maxlength="1000" placeholder="Например: подкаст на двоих, нужен суфлёр"></textarea>
+                    </label>
+                    <!-- ловушка для спам-ботов: людям не видна -->
+                    <label class="trap" aria-hidden="true">Сайт <input name="website" tabindex="-1" autocomplete="off"></label>
+                </fieldset>
+
+                <div class="summary" id="summary" hidden>
+                    <dl class="summary__list" data-role="summary"></dl>
+                    <p class="summary__total"><span>Итого</span><strong data-role="total"></strong></p>
+                    <p class="summary__message" data-role="message" hidden></p>
+                    <button class="btn btn--primary btn--block" type="submit" data-role="submit">Отправить заявку</button>
+                    <p class="summary__note">Бронь станет окончательной после нашего подтверждения — позвоним или напишем в WhatsApp.</p>
+                </div>
+            </form>
+
+            <div class="success" id="booking-success" hidden>
+                <div class="success__icon" aria-hidden="true">✓</div>
+                <h2 class="success__title">Заявка отправлена!</h2>
+                <p class="success__text" data-role="success-text"></p>
+                <a class="btn btn--secondary" href="./">Забронировать ещё</a>
+            </div>
+        </section>
+
+        <section class="quick">
+            <h2 class="quick__title">Удобнее написать?</h2>
+            <div class="quick__grid">
+                <a class="quick__item" data-role="tg-link" href="https://t.me/luma_studiobot" target="_blank" rel="noopener noreferrer">
+                    <strong>Telegram-бот</strong><span>Бронь в пару нажатий</span>
+                </a>
+                <a class="quick__item" href="https://wa.me/79887727222" target="_blank" rel="noopener noreferrer">
+                    <strong>WhatsApp</strong><span>+7 988 772-72-22</span>
+                </a>
+                <a class="quick__item" href="tel:+79894590468">
+                    <strong>Позвонить</strong><span>+7 989 459-04-68</span>
+                </a>
+                <a class="quick__item" href="https://www.instagram.com/lumastudio_sf" target="_blank" rel="noopener noreferrer">
+                    <strong>Instagram</strong><span>@lumastudio_sf</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="about">
+            <img class="about__img" src="./studio-1.jpg" alt="Подкаст-зона Luma Studio" width="1400" height="933" loading="lazy">
+            <ul class="about__facts">
+                <li><strong>3 камеры Sony 4K</strong><span>многокамерная запись подкастов</span></li>
+                <li><strong>Звук Shure и RØDECaster</strong><span>чистая речь без шумов</span></li>
+                <li><strong>Свет уже выставлен</strong><span>специалист поможет с настройкой</span></li>
+                <li><strong>Монтаж под ключ</strong><span>выпуск и Reels за 7 дней</span></li>
+            </ul>
+            <a class="about__link" href="../#cases">Смотреть кейсы на сайте →</a>
+        </section>
+
+        <section class="address">
+            <p class="eyebrow">Как добраться</p>
+            <p class="address__text">Махачкала, ул. Магомеда Ярагского, 59/2<br><span>Есть заезд на территорию и парковка</span></p>
+            <a class="btn btn--secondary" href="https://2gis.ru/makhachkala/geo/70000001109764764" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="../"><img class="footer__logo" src="../images/logo-luma.png" alt="Luma Studio" width="459" height="253" loading="lazy"></a>
+        <span>© 2026 Luma Studio</span>
+    </footer>
+
+    <script src="./book.js?v=20261010"></script>
+</body>
+</html>

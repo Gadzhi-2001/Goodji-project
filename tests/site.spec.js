@@ -27,7 +27,7 @@ test("desktop layout and core content render correctly", async ({ page }) => {
   await page.waitForLoadState("networkidle");
 
   await expect(page.locator("h1")).toContainText("Студия записи подкастов");
-  await expect(page.locator('a[href="https://wa.me/79894590468"]').first()).toBeVisible();
+  await expect(page.locator('a[href="https://wa.me/79887727222"]').first()).toBeVisible();
   await expect(page.locator("#studio")).toBeVisible();
   await expect(page.locator("#formats")).toBeVisible();
   await expect(page.locator("#cases")).toBeVisible();
@@ -36,8 +36,8 @@ test("desktop layout and core content render correctly", async ({ page }) => {
   await expect(page.locator("#contacts")).toBeVisible();
   await expect(page.locator(".format-card")).toHaveCount(3);
   await expect(page.locator(".case-card")).toHaveCount(2);
-  await expect(page.locator(".pricing-card")).toHaveCount(5);
-  await expect(page.locator(".equipment-card")).toHaveCount(4);
+  await expect(page.locator(".price-card")).toHaveCount(5);
+  await expect(page.locator(".equip-tile")).toHaveCount(8);
 
   await page.locator(".video-launch").first().click();
   await expect(page.locator(".video-modal.is-open")).toBeVisible();
