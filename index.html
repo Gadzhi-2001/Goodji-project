@@ -37,7 +37,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="./style.css?v=20261010-2">
+    <link rel="stylesheet" href="./style.css?v=20261011">
 </head>
 <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -79,16 +79,17 @@
 
             <nav class="nav nav--desktop" aria-label="Основная навигация">
                 <a href="#studio" class="nav__link">О студии</a>
+                <a href="#pricing" class="nav__link">Тарифы</a>
+                <a href="#booking" class="nav__link">Запись</a>
                 <a href="#formats" class="nav__link">Для кого</a>
                 <a href="#cases" class="nav__link">Кейсы</a>
                 <a href="#equipment" class="nav__link">Оборудование</a>
-                <a href="#pricing" class="nav__link">Тарифы</a>
                 <a href="#faq" class="nav__link">FAQ</a>
                 <a href="#contacts" class="nav__link">Контакты</a>
             </nav>
 
             <div class="site-header__actions">
-                <a href="https://wa.me/79887727222" class="btn btn--header" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="#booking" class="btn btn--header">Записаться</a>
                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
                     <span></span>
                     <span></span>
@@ -109,10 +110,11 @@
 
                 <nav class="nav nav--mobile" aria-label="Мобильная навигация">
                     <a href="#studio" class="nav__link">О студии</a>
+                    <a href="#pricing" class="nav__link">Тарифы</a>
+                    <a href="#booking" class="nav__link">Запись</a>
                     <a href="#formats" class="nav__link">Для кого</a>
                     <a href="#cases" class="nav__link">Кейсы</a>
                     <a href="#equipment" class="nav__link">Оборудование</a>
-                    <a href="#pricing" class="nav__link">Тарифы</a>
                     <a href="#faq" class="nav__link">FAQ</a>
                     <a href="#contacts" class="nav__link">Контакты</a>
                 </nav>
@@ -148,7 +150,7 @@
                     </p>
 
                     <div class="hero__actions">
-                        <a href="https://wa.me/79887727222" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                        <a href="#booking" class="btn btn--primary">Выбрать время</a>
                         <a href="#cases" class="btn btn--ghost">Смотреть кейсы</a>
                     </div>
 
@@ -225,6 +227,211 @@
                         </article>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section section--pricing reveal">
+            <div class="container">
+                <div class="price-group">
+                    <div class="section-heading section-heading--center">
+                        <p class="eyebrow">Подкаст под ключ</p>
+                        <h2 class="section-heading__title">Выберите свой формат.</h2>
+                        <p class="section-heading__text">
+                            Цена фиксируется при бронировании — без скрытых доплат.
+                        </p>
+                    </div>
+
+                    <div class="price-grid price-grid--three">
+                        <article class="price-card">
+                            <h3 class="price-card__name">Съёмка</h3>
+                            <p class="price-card__sub">Запись без монтажа</p>
+                            <p class="price-card__price">13&nbsp;000&nbsp;₽</p>
+                            <ul class="price-card__list">
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Запись до 2 часов</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg>Съёмка на 3 камеры</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>Постановка света и звука под вашу съёмку</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>Работа оператора</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-drive"/></svg>Исходники на носитель</li>
+                            </ul>
+                            <a href="#booking" class="btn btn--secondary" data-book-service="podcast_shoot">Записаться</a>
+                        </article>
+
+                        <article class="price-card">
+                            <h3 class="price-card__name">БАЗА</h3>
+                            <p class="price-card__sub">Выпуск и тизер</p>
+                            <p class="price-card__price">25&nbsp;000&nbsp;₽</p>
+                            <ul class="price-card__list">
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Запись до 2 часов</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg>Многокамерная съёмка</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>Профессиональный свет и звук</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>Работа оператора</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-scissors"/></svg>Монтаж полного выпуска</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-reels"/></svg>1 Reels-тизер</li>
+                            </ul>
+                            <a href="#booking" class="btn btn--secondary" data-book-service="podcast_base">Выбрать БАЗУ</a>
+                        </article>
+
+                        <article class="price-card price-card--featured">
+                            <div class="price-card__top">
+                                <h3 class="price-card__name">PRO</h3>
+                                <span class="price-card__badge">Больше контента</span>
+                            </div>
+                            <p class="price-card__sub">Выпуск и 5 Reels</p>
+                            <p class="price-card__price">35&nbsp;000&nbsp;₽</p>
+                            <ul class="price-card__list">
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Всё из тарифа «БАЗА»</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-scissors"/></svg>Монтаж полного выпуска</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-reels"/></svg>5 Reels из подкаста</li>
+                            </ul>
+                            <p class="price-card__accent"><span class="price-card__big">×5</span> Reels вместо одного</p>
+                            <a href="#booking" class="btn btn--primary" data-book-service="podcast_pro">Выбрать PRO</a>
+                        </article>
+                    </div>
+
+                    <div class="note-bar note-bar--inline">
+                        <p class="note-bar__lead">По запросу</p>
+                        <ul class="note-bar__items">
+                            <li><svg class="icon" aria-hidden="true"><use href="#i-cover"/></svg>Обложка на YouTube</li>
+                            <li><svg class="icon" aria-hidden="true"><use href="#i-headphones"/></svg>Аудиоверсия подкаста</li>
+                        </ul>
+                    </div>
+
+                    <p class="price-footnote">
+                        <strong>Запись до 1 часа — скидка 20%.</strong>
+                        БАЗА — 20&nbsp;000&nbsp;₽, PRO — 28&nbsp;000&nbsp;₽.
+                    </p>
+                </div>
+
+                <div class="price-group" id="rent">
+                    <div class="section-heading section-heading--center">
+                        <p class="eyebrow">Аренда студии</p>
+                        <h2 class="section-heading__title">Студия. По&nbsp;часам.</h2>
+                    </div>
+
+                    <div class="price-grid price-grid--two">
+                        <article class="price-card">
+                            <h3 class="price-card__name">БАЗА</h3>
+                            <p class="price-card__sub">Студия и техника</p>
+                            <p class="price-card__price">2&nbsp;500&nbsp;₽ <span>/ 1-й час</span></p>
+                            <p class="price-card__next">Каждый следующий час — <strong>2&nbsp;000&nbsp;₽</strong></p>
+                            <ul class="price-card__list">
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-sofa"/></svg>Студия и интерьер</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-bulb"/></svg>Световое оборудование</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>Звуковое оборудование</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-help"/></svg>Помощь с настройкой оборудования</li>
+                            </ul>
+                            <a href="#booking" class="btn btn--secondary" data-book-service="rent_base">Забронировать</a>
+                        </article>
+
+                        <article class="price-card price-card--featured">
+                            <div class="price-card__top">
+                                <h3 class="price-card__name">PRO</h3>
+                                <span class="price-card__badge">С оператором</span>
+                            </div>
+                            <p class="price-card__sub">Снимаем за вас</p>
+                            <p class="price-card__price">5&nbsp;000&nbsp;₽ <span>/ 1-й час</span></p>
+                            <p class="price-card__next">Каждый следующий час — <strong>4&nbsp;500&nbsp;₽</strong></p>
+                            <ul class="price-card__list">
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Всё из тарифа «БАЗА»</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>Камера Sony ZV-E1</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>Работа оператора</li>
+                                <li><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Настройка света и звука под съёмку</li>
+                            </ul>
+                            <p class="price-card__accent price-card__accent--stack"><span class="price-card__big">ZV-E1</span> камера Sony в комплекте</p>
+                            <a href="#booking" class="btn btn--primary" data-book-service="rent_pro">Забронировать с оператором</a>
+                        </article>
+                    </div>
+
+                    <p class="price-footnote">Оплата почасовая: 2 часа БАЗА — 4&nbsp;500&nbsp;₽, PRO — 9&nbsp;500&nbsp;₽. Нужен готовый выпуск с монтажом — смотрите <a href="#pricing">подкаст под ключ</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="section section--booking reveal">
+            <div class="container">
+                <div class="section-heading section-heading--center">
+                    <p class="eyebrow">Онлайн-запись</p>
+                    <h2 class="section-heading__title">Выберите время.</h2>
+                    <p class="section-heading__text">Свободные слоты обновляются автоматически. Подтвердим бронь в течение часа.</p>
+                </div>
+
+                <div class="booking">
+                    <div class="booking__loading" id="booking-loading">Загружаем свободное время…</div>
+                    <div class="booking__error" id="booking-error" hidden>
+                        <p>Не получилось загрузить расписание. Напишите нам — подберём время вручную.</p>
+                        <a class="btn btn--primary" href="https://wa.me/79887727222" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                    </div>
+
+                    <form class="booking__form" id="booking-form" hidden novalidate>
+                        <fieldset class="step" id="step-location" hidden>
+                            <legend class="step__title"><span class="step__num">·</span> Где снимаем?</legend>
+                            <div class="choices choices--cards" data-role="locations"></div>
+                        </fieldset>
+
+                        <fieldset class="step">
+                            <legend class="step__title"><span class="step__num">1</span> Что снимаем?</legend>
+                            <div class="choices choices--cards" data-role="services"></div>
+                        </fieldset>
+
+                        <fieldset class="step" id="step-extras" hidden>
+                            <legend class="step__title"><span class="step__num">+</span> Что нужно?</legend>
+                            <p class="step__hint">Отметьте всё, что пригодится. Чего нет в списке — напишите в комментарии.</p>
+                            <div class="choices choices--chips" data-role="extras"></div>
+                        </fieldset>
+
+                        <fieldset class="step" id="step-duration" hidden>
+                            <legend class="step__title"><span class="step__num">2</span> Сколько времени?</legend>
+                            <div class="choices choices--chips" data-role="options"></div>
+                        </fieldset>
+
+                        <fieldset class="step" id="step-date" hidden>
+                            <legend class="step__title"><span class="step__num">3</span> Когда?</legend>
+                            <div class="dates" data-role="dates"></div>
+                            <div class="choices choices--times" data-role="times"></div>
+                            <p class="step__hint" data-role="slots-note" hidden></p>
+                        </fieldset>
+
+                        <fieldset class="step" id="step-contacts" hidden>
+                            <legend class="step__title"><span class="step__num">4</span> Контакты</legend>
+                            <label class="field">
+                                <span class="field__label">Имя</span>
+                                <input class="field__input" name="name" autocomplete="name" maxlength="60" required>
+                            </label>
+                            <label class="field">
+                                <span class="field__label">Телефон</span>
+                                <input class="field__input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+                            </label>
+                            <label class="field">
+                                <span class="field__label" data-role="comment-label">Комментарий <span class="field__optional">— необязательно</span></span>
+                                <textarea class="field__input field__input--area" name="comment" rows="3" maxlength="1000" placeholder="Например: подкаст на двоих, нужен суфлёр"></textarea>
+                            </label>
+                            <!-- ловушка для спам-ботов: людям не видна -->
+                            <label class="trap" aria-hidden="true">Сайт <input name="website" tabindex="-1" autocomplete="off"></label>
+                        </fieldset>
+
+                        <div class="summary" id="summary" hidden>
+                            <dl class="summary__list" data-role="summary"></dl>
+                            <p class="summary__total"><span>Итого</span><strong data-role="total"></strong></p>
+                            <p class="summary__message" data-role="message" hidden></p>
+                            <button class="btn btn--primary btn--block" type="submit" data-role="submit">Отправить заявку</button>
+                            <p class="summary__note">Бронь станет окончательной после нашего подтверждения — позвоним или напишем в WhatsApp.</p>
+                        </div>
+                    </form>
+
+                    <div class="success" id="booking-success" hidden>
+                        <div class="success__icon" aria-hidden="true">✓</div>
+                        <h3 class="success__title">Заявка отправлена!</h3>
+                        <p class="success__text" data-role="success-text"></p>
+                        <button class="btn btn--secondary" type="button" id="booking-restart">Забронировать ещё</button>
+                    </div>
+                </div>
+
+                <p class="booking__alt">
+                    Удобнее в мессенджере?
+                    <a data-role="tg-link" href="https://t.me/luma_studiobot" target="_blank" rel="noopener noreferrer">Telegram-бот</a> ·
+                    <a href="https://wa.me/79887727222" target="_blank" rel="noopener noreferrer">WhatsApp</a> ·
+                    <a href="tel:+79894590468">Позвонить</a>
+                </p>
             </div>
         </section>
 
@@ -337,146 +544,6 @@
                         </div>
                     </article>
 
-                    <article class="case-card">
-                        <div class="case-card__frame">
-                            <button
-                                class="video-launch"
-                                type="button"
-                                data-video-src="https://www.youtube-nocookie.com/embed/Cdt1qdpyQDA?autoplay=1&amp;rel=0"
-                                data-video-title="Бизнес в 2026. Маркетинг умирает или развивается?"
-                                aria-label="Открыть видеокейс Бизнес в 2026. Маркетинг умирает или развивается?"
-                            >
-                                <img
-                                    src="https://i.ytimg.com/vi/Cdt1qdpyQDA/hqdefault.jpg"
-                                    alt="Превью кейса Бизнес в 2026. Маркетинг умирает или развивается?"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="480"
-                                    height="360"
-                                >
-                                <span class="video-launch__play" aria-hidden="true"></span>
-                                <span class="video-launch__label">Смотреть кейс</span>
-                            </button>
-                        </div>
-                        <div class="case-card__body">
-                            <p class="case-card__meta">Интервью • 50 минут</p>
-                            <h3 class="case-card__title">Бизнес в 2026. Маркетинг умирает или развивается?</h3>
-                            <p class="case-card__text">
-                                Экспертная беседа в студийном сетапе, которая показывает, как аккуратно на сайте
-                                могут смотреться длинные интервью, дискуссии и разговорные выпуски для бренда.
-                            </p>
-                            <div class="case-card__actions">
-                                <a href="https://www.youtube.com/watch?v=Cdt1qdpyQDA" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Открыть выпуск</a>
-                                <a href="https://wa.me/79887727222" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Обсудить запись</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="case-card">
-                        <div class="case-card__frame">
-                            <button
-                                class="video-launch"
-                                type="button"
-                                data-video-src="https://www.youtube-nocookie.com/embed/Cy6P2-pM9mg?autoplay=1&amp;rel=0"
-                                data-video-title="Медицина, фармакология, спорт. Советы врача онколога-уролога"
-                                aria-label="Открыть видеокейс Медицина, фармакология, спорт. Советы врача онколога-уролога"
-                            >
-                                <img
-                                    src="https://i.ytimg.com/vi/Cy6P2-pM9mg/hqdefault.jpg"
-                                    alt="Превью кейса Медицина, фармакология, спорт. Советы врача онколога-уролога"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="480"
-                                    height="360"
-                                >
-                                <span class="video-launch__play" aria-hidden="true"></span>
-                                <span class="video-launch__label">Смотреть кейс</span>
-                            </button>
-                        </div>
-                        <div class="case-card__body">
-                            <p class="case-card__meta">Экспертный выпуск • Тренировка #1</p>
-                            <h3 class="case-card__title">Медицина, фармакология, спорт — советы врача онколога-уролога</h3>
-                            <p class="case-card__text">
-                                Экспертный формат с профессиональным гостем в кадре. Пример того, как врач
-                                или специалист может вести собственный видеоконтент в студии.
-                            </p>
-                            <div class="case-card__actions">
-                                <a href="https://youtu.be/Cy6P2-pM9mg" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Открыть выпуск</a>
-                                <a href="https://wa.me/79887727222" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Хочу похожий формат</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="case-card">
-                        <div class="case-card__frame">
-                            <button
-                                class="video-launch"
-                                type="button"
-                                data-video-src="https://www.youtube-nocookie.com/embed/Efv3c-fF2rQ?autoplay=1&amp;rel=0"
-                                data-video-title="Если пациент не хочет лечиться — его не надо спасать. Сабир Меджидов"
-                                aria-label="Открыть видеокейс Если пациент не хочет лечиться. Сабир Меджидов"
-                            >
-                                <img
-                                    src="https://i.ytimg.com/vi/Efv3c-fF2rQ/hqdefault.jpg"
-                                    alt="Превью кейса Сабир Меджидов"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="480"
-                                    height="360"
-                                >
-                                <span class="video-launch__play" aria-hidden="true"></span>
-                                <span class="video-launch__label">Смотреть кейс</span>
-                            </button>
-                        </div>
-                        <div class="case-card__body">
-                            <p class="case-card__meta">Видеоподкаст • Сабир Меджидов</p>
-                            <h3 class="case-card__title">Если пациент не хочет лечиться — его не надо спасать</h3>
-                            <p class="case-card__text">
-                                Откровенный разговор с врачом о границах, профессиональном выгорании и этике.
-                                Пример глубокого экспертного выпуска в студийном формате.
-                            </p>
-                            <div class="case-card__actions">
-                                <a href="https://youtu.be/Efv3c-fF2rQ" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Открыть выпуск</a>
-                                <a href="https://wa.me/79887727222" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Хочу похожий формат</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="case-card">
-                        <div class="case-card__frame">
-                            <button
-                                class="video-launch"
-                                type="button"
-                                data-video-src="https://www.youtube-nocookie.com/embed/geot_367mYw?autoplay=1&amp;rel=0"
-                                data-video-title="RABADANOV LIVE 7. Мирза Мурачуев — Врач маммолог"
-                                aria-label="Открыть видеокейс RABADANOV LIVE 7. Мирза Мурачуев — Врач маммолог"
-                            >
-                                <img
-                                    src="https://i.ytimg.com/vi/geot_367mYw/hqdefault.jpg"
-                                    alt="Превью кейса RABADANOV LIVE 7. Мирза Мурачуев — Врач маммолог"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="480"
-                                    height="360"
-                                >
-                                <span class="video-launch__play" aria-hidden="true"></span>
-                                <span class="video-launch__label">Смотреть кейс</span>
-                            </button>
-                        </div>
-                        <div class="case-card__body">
-                            <p class="case-card__meta">Видеоподкаст • RABADANOV LIVE 7</p>
-                            <h3 class="case-card__title">Мирза Мурачуев — Врач маммолог</h3>
-                            <p class="case-card__text">
-                                Интервью с практикующим врачом о профессии, пациентах и жизни в медицине.
-                                Живой студийный диалог с экспертом в кадре.
-                            </p>
-                            <div class="case-card__actions">
-                                <a href="https://youtu.be/geot_367mYw" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Открыть выпуск</a>
-                                <a href="https://wa.me/79887727222" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Хочу похожий формат</a>
-                            </div>
-                        </div>
-                    </article>
-
                     <aside class="case-cta" aria-label="Хотите такой же выпуск">
                         <div>
                             <p class="eyebrow">Хотите так же?</p>
@@ -543,48 +610,6 @@
                             </div>
                         </a>
 
-                        <a class="reel-card" href="https://www.instagram.com/reel/DUQhxqsDJoo/" target="_blank" rel="noopener noreferrer">
-                            <div class="reel-card__frame">
-                                <img src="./images/reel-4.jpg" alt="Рустам Рабаданов — Своевременно обращайтесь к врачам" loading="lazy" decoding="async" width="640" height="640">
-                                <span class="reel-card__badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                    Instagram
-                                </span>
-                            </div>
-                            <div class="reel-card__body">
-                                <p class="reel-card__author">@rabadanov_live</p>
-                                <p class="reel-card__title">Своевременно обращайтесь к врачам</p>
-                            </div>
-                        </a>
-
-                        <a class="reel-card" href="https://www.instagram.com/reel/DXPqUqoDi_x/" target="_blank" rel="noopener noreferrer">
-                            <div class="reel-card__frame">
-                                <img src="./images/reel-5.jpg" alt="Будунов Консалт — подкаст с Юлией Салмановой" loading="lazy" decoding="async" width="640" height="640">
-                                <span class="reel-card__badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                    Instagram
-                                </span>
-                            </div>
-                            <div class="reel-card__body">
-                                <p class="reel-card__author">@budunov_consult</p>
-                                <p class="reel-card__title">Мысль с подкаста с Юлией Салмановой</p>
-                            </div>
-                        </a>
-
-                        <a class="reel-card" href="https://www.instagram.com/reel/DX2D7LitkHM/" target="_blank" rel="noopener noreferrer">
-                            <div class="reel-card__frame">
-                                <img src="./images/reel-6.jpg" alt="Favaid — умные коврики для намаза" loading="lazy" decoding="async" width="640" height="640">
-                                <span class="reel-card__badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                    Instagram
-                                </span>
-                            </div>
-                            <div class="reel-card__body">
-                                <p class="reel-card__author">@the.favaid</p>
-                                <p class="reel-card__title">FAVAID — качество, минимализм, технология</p>
-                            </div>
-                        </a>
-
                         <a class="reel-card" href="https://www.instagram.com/reel/DUQ9UHFjJiS/" target="_blank" rel="noopener noreferrer">
                             <div class="reel-card__frame">
                                 <img src="./images/reel-7.jpg" alt="Гасанов Гамзат — мотивационный ролик" loading="lazy" decoding="async" width="640" height="640">
@@ -596,20 +621,6 @@
                             <div class="reel-card__body">
                                 <p class="reel-card__author">@gasanov_gamzat_</p>
                                 <p class="reel-card__title">Мужчины не хотят зарабатывать мало</p>
-                            </div>
-                        </a>
-
-                        <a class="reel-card" href="https://www.instagram.com/reel/DVYvfs1jHjT/" target="_blank" rel="noopener noreferrer">
-                            <div class="reel-card__frame">
-                                <img src="./images/reel-8.jpg" alt="Будунова Джаннет — женщина в бизнесе" loading="lazy" decoding="async" width="640" height="640">
-                                <span class="reel-card__badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                    Instagram
-                                </span>
-                            </div>
-                            <div class="reel-card__body">
-                                <p class="reel-card__author">@budunova_djennet</p>
-                                <p class="reel-card__title">Женщина в бизнесе и гармония в семье</p>
                             </div>
                         </a>
 
@@ -669,123 +680,6 @@
                         <p class="note-bar__text">Стоимость — по запросу. Напишите, какая техника нужна и на какие даты.</p>
                     </div>
                     <a href="https://wa.me/79887727222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B0%D1%80%D0%B5%D0%BD%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D1%83%3A%20" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Узнать стоимость</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="pricing" class="section section--pricing reveal">
-            <div class="container">
-                <div class="price-group">
-                    <div class="section-heading section-heading--center">
-                        <p class="eyebrow">Подкаст под ключ</p>
-                        <h2 class="section-heading__title">Выберите свой формат.</h2>
-                        <p class="section-heading__text">
-                            Цена фиксируется при бронировании — без скрытых доплат.
-                        </p>
-                    </div>
-
-                    <div class="price-grid price-grid--three">
-                        <article class="price-card">
-                            <h3 class="price-card__name">Съёмка</h3>
-                            <p class="price-card__sub">Запись без монтажа</p>
-                            <p class="price-card__price">13&nbsp;000&nbsp;₽</p>
-                            <ul class="price-card__list">
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Запись до 2 часов</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg>Съёмка на 3 камеры</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>Постановка света и звука под вашу съёмку</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>Работа оператора</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-drive"/></svg>Исходники на носитель</li>
-                            </ul>
-                            <a href="https://wa.me/79887727222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%2C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%A1%D1%8A%D1%91%D0%BC%D0%BA%D0%B0%C2%BB%20%2813%20000%20%E2%82%BD%29." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Записаться</a>
-                        </article>
-
-                        <article class="price-card">
-                            <h3 class="price-card__name">БАЗА</h3>
-                            <p class="price-card__sub">Выпуск и тизер</p>
-                            <p class="price-card__price">25&nbsp;000&nbsp;₽</p>
-                            <ul class="price-card__list">
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Запись до 2 часов</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg>Многокамерная съёмка</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>Профессиональный свет и звук</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>Работа оператора</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-scissors"/></svg>Монтаж полного выпуска</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-reels"/></svg>1 Reels-тизер</li>
-                            </ul>
-                            <a href="https://wa.me/79887727222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87%2C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%91%D0%90%D0%97%D0%90%C2%BB%20%2825%20000%20%E2%82%BD%29." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Выбрать БАЗУ</a>
-                        </article>
-
-                        <article class="price-card price-card--featured">
-                            <div class="price-card__top">
-                                <h3 class="price-card__name">PRO</h3>
-                                <span class="price-card__badge">Больше контента</span>
-                            </div>
-                            <p class="price-card__sub">Выпуск и 5 Reels</p>
-                            <p class="price-card__price">35&nbsp;000&nbsp;₽</p>
-                            <ul class="price-card__list">
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Всё из тарифа «БАЗА»</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-scissors"/></svg>Монтаж полного выпуска</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-reels"/></svg>5 Reels из подкаста</li>
-                            </ul>
-                            <p class="price-card__accent"><span class="price-card__big">×5</span> Reels вместо одного</p>
-                            <a href="https://wa.me/79887727222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87%2C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%ABPRO%C2%BB%20%2835%20000%20%E2%82%BD%29." class="btn btn--primary" target="_blank" rel="noopener noreferrer">Выбрать PRO</a>
-                        </article>
-                    </div>
-
-                    <div class="note-bar note-bar--inline">
-                        <p class="note-bar__lead">По запросу</p>
-                        <ul class="note-bar__items">
-                            <li><svg class="icon" aria-hidden="true"><use href="#i-cover"/></svg>Обложка на YouTube</li>
-                            <li><svg class="icon" aria-hidden="true"><use href="#i-headphones"/></svg>Аудиоверсия подкаста</li>
-                        </ul>
-                    </div>
-
-                    <p class="price-footnote">
-                        <strong>Запись до 1 часа — скидка 20%.</strong>
-                        БАЗА — 20&nbsp;000&nbsp;₽, PRO — 28&nbsp;000&nbsp;₽.
-                    </p>
-                </div>
-
-                <div class="price-group" id="rent">
-                    <div class="section-heading section-heading--center">
-                        <p class="eyebrow">Аренда студии</p>
-                        <h2 class="section-heading__title">Студия. По&nbsp;часам.</h2>
-                    </div>
-
-                    <div class="price-grid price-grid--two">
-                        <article class="price-card">
-                            <h3 class="price-card__name">БАЗА</h3>
-                            <p class="price-card__sub">Студия и техника</p>
-                            <p class="price-card__price">2&nbsp;500&nbsp;₽ <span>/ 1-й час</span></p>
-                            <p class="price-card__next">Каждый следующий час — <strong>2&nbsp;000&nbsp;₽</strong></p>
-                            <ul class="price-card__list">
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-sofa"/></svg>Студия и интерьер</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-bulb"/></svg>Световое оборудование</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>Звуковое оборудование</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-help"/></svg>Помощь с настройкой оборудования</li>
-                            </ul>
-                            <a href="https://wa.me/79887727222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D1%8E%2C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%91%D0%90%D0%97%D0%90%C2%BB%20%282%20500%20%E2%82%BD%2F%D1%87%D0%B0%D1%81%29.%20%D0%94%D0%B0%D1%82%D0%B0%20%D0%B8%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%3A%20" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Забронировать</a>
-                        </article>
-
-                        <article class="price-card price-card--featured">
-                            <div class="price-card__top">
-                                <h3 class="price-card__name">PRO</h3>
-                                <span class="price-card__badge">С оператором</span>
-                            </div>
-                            <p class="price-card__sub">Снимаем за вас</p>
-                            <p class="price-card__price">5&nbsp;000&nbsp;₽ <span>/ 1-й час</span></p>
-                            <p class="price-card__next">Каждый следующий час — <strong>4&nbsp;500&nbsp;₽</strong></p>
-                            <ul class="price-card__list">
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Всё из тарифа «БАЗА»</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>Камера Sony ZV-E1</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>Работа оператора</li>
-                                <li><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Настройка света и звука под съёмку</li>
-                            </ul>
-                            <p class="price-card__accent price-card__accent--stack"><span class="price-card__big">ZV-E1</span> камера Sony в комплекте</p>
-                            <a href="https://wa.me/79887727222?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D1%8E%20%D1%81%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BE%D0%BC%2C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%ABPRO%C2%BB%20%285%20000%20%E2%82%BD%2F%D1%87%D0%B0%D1%81%29.%20%D0%94%D0%B0%D1%82%D0%B0%20%D0%B8%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%3A%20" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Забронировать с оператором</a>
-                        </article>
-                    </div>
-
-                    <p class="price-footnote">Оплата почасовая: 2 часа БАЗА — 4&nbsp;500&nbsp;₽, PRO — 9&nbsp;500&nbsp;₽. Нужен готовый выпуск с монтажом — смотрите <a href="#pricing">подкаст под ключ</a>.</p>
                 </div>
             </div>
         </section>
@@ -1038,6 +932,7 @@
         </div>
     </footer>
 
-    <script src="./script.js?v=20261010-2"></script>
+    <script src="./script.js?v=20261011"></script>
+    <script src="./booking.js?v=20261011"></script>
 </body>
 </html>

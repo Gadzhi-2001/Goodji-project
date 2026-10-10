@@ -84,6 +84,7 @@ input,
 textarea,
 select {
     font: inherit;
+    color: inherit;
 }
 
 .container {
@@ -509,8 +510,8 @@ select {
     max-width: 10ch;
     font-weight: 800;
     font-size: clamp(3rem, 5.4vw, 5.35rem);
-    line-height: 0.92;
-    letter-spacing: -0.045em;
+    line-height: 0.95;
+    letter-spacing: -0.015em;
     text-wrap: balance;
 }
 
@@ -1600,6 +1601,407 @@ select {
     align-items: center;
     gap: 10px;
     font-size: 1.05rem;
+}
+
+/* ---------- Онлайн-запись (форма как на /book) ---------- */
+
+.booking {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px;
+    border-radius: var(--radius-xl);
+    background: var(--card);
+}
+
+.booking__loading {
+    padding: 40px 0;
+    color: var(--muted);
+    text-align: center;
+}
+
+.booking__error {
+    text-align: center;
+    color: var(--muted);
+}
+
+.booking__error .btn {
+    margin-top: 8px;
+}
+
+.step {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.step + .step,
+.step + .summary {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+}
+
+.step__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    padding: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.45rem;
+    letter-spacing: -0.02em;
+}
+
+.step__num {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #14120f;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.step__hint {
+    margin: -6px 0 14px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.choices {
+    display: grid;
+    gap: 10px;
+}
+
+.choices--chips {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.choices--times {
+    margin-top: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+}
+
+.choice {
+    position: relative;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--line-strong);
+    border-radius: 18px;
+    background: rgba(255, 244, 222, 0.02);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color var(--transition), background-color var(--transition);
+}
+
+.choice:hover {
+    border-color: rgba(255, 244, 222, 0.3);
+}
+
+.choice[aria-pressed="true"] {
+    border-color: var(--accent);
+    background: rgba(224, 169, 76, 0.1);
+}
+
+.choice__title {
+    display: block;
+    font-weight: 700;
+    font-size: 1.02rem;
+}
+
+.choice__desc {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.choice__price {
+    display: block;
+    margin-top: 8px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.choices--chips .choice,
+.choices--times .choice {
+    padding: 12px 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.choice__sub {
+    display: block;
+    margin-top: 2px;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.choices--chips .choice .choice__title {
+    font-size: 0.95rem;
+}
+
+.choices--chips[data-role="options"] .choice[aria-pressed="true"]::before {
+    content: none;
+}
+
+.choices--chips .choice[aria-pressed="true"]::before {
+    content: "✓ ";
+    color: var(--accent);
+}
+
+.dates {
+    display: flex;
+    gap: 8px;
+    margin: 0 -36px;
+    padding: 2px 36px 6px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 36px;
+    scrollbar-width: none;
+}
+
+.dates::-webkit-scrollbar {
+    display: none;
+}
+
+.date {
+    flex: 0 0 auto;
+    min-width: 66px;
+    padding: 10px 12px;
+    border: 1.5px solid var(--line-strong);
+    border-radius: 18px;
+    background: rgba(255, 244, 222, 0.02);
+    text-align: center;
+    cursor: pointer;
+    scroll-snap-align: start;
+    transition: border-color var(--transition), background-color var(--transition);
+}
+
+.date[aria-pressed="true"] {
+    border-color: var(--accent);
+    background: rgba(224, 169, 76, 0.1);
+}
+
+.date__wd {
+    display: block;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.date__day {
+    display: block;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.date--nodate {
+    min-width: 132px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ---------- контакты ---------- */
+
+.field {
+    display: block;
+}
+
+.field + .field {
+    margin-top: 14px;
+}
+
+.field__label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.field__optional {
+    color: var(--subtle);
+}
+
+.field__input {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 16px;
+    border: 1.5px solid var(--line-strong);
+    border-radius: 14px;
+    background: rgba(255, 244, 222, 0.03);
+    font-size: 1rem;
+    transition: border-color var(--transition);
+}
+
+.field__input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.field__input--area {
+    resize: vertical;
+    min-height: 92px;
+}
+
+.field__input[aria-invalid="true"] {
+    border-color: #ff8a7a;
+}
+
+.trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ---------- итог ---------- */
+
+.summary__list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+}
+
+.summary__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.95rem;
+}
+
+.summary__row dt {
+    color: var(--muted);
+}
+
+.summary__row dd {
+    margin: 0;
+    text-align: right;
+    font-weight: 600;
+}
+
+.summary__total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 18px 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+}
+
+.summary__total strong {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: -0.03em;
+    text-align: right;
+}
+
+.summary__total strong.is-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.summary__message {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 138, 122, 0.1);
+    color: #ff8a7a;
+    font-size: 0.95rem;
+}
+
+.summary__note {
+    margin: 12px 0 0;
+    color: var(--subtle);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ---------- успех ---------- */
+
+.success {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.success__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #14120f;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.success__title {
+    margin: 18px 0 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+
+.success__text {
+    margin: 0 auto 22px;
+    max-width: 40ch;
+    color: var(--muted);
+}
+
+
+.btn--block {
+    width: 100%;
+}
+
+.btn[disabled] {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+.choices--cards {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.booking__alt {
+    margin: 22px 0 0;
+    color: var(--muted);
+    text-align: center;
+}
+
+.booking__alt a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 720px) {
+    .booking {
+        padding: 26px 18px;
+    }
+
+    .dates {
+        margin: 0 -18px;
+        padding-inline: 18px;
+        scroll-padding-inline: 18px;
+    }
 }
 
 /* ---------- Техника ---------- */

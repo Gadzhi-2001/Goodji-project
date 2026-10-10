@@ -1,9 +1,10 @@
-// Страница бронирования Luma Studio: услуги, свободные слоты и заявки берутся из API бота (Supabase Edge Function).
+// Онлайн-запись на главной: услуги, свободные слоты и заявки берутся из API бота (Supabase Edge Function).
 (() => {
     const API = "https://kyacbhvnvbjwyjxdsgqu.supabase.co/functions/v1/luma-bot/api";
     const STORAGE_KEY = "luma-book-contacts";
 
     const form = document.getElementById("booking-form");
+    if (!form) return;
     const role = (name) => form.querySelector(`[data-role="${name}"]`);
     const show = (node, visible) => { node.hidden = !visible; };
 
@@ -397,9 +398,8 @@
             return;
         }
 
-        if (state.config.botUsername) {
-            document.querySelector('[data-role="tg-link"]').href = `https://t.me/${state.config.botUsername}`;
-        }
+        const tgLink = document.querySelector('[data-role="tg-link"]');
+        if (tgLink && state.config.botUsername) tgLink.href = `https://t.me/${state.config.botUsername}`;
         state.locationId = state.config.locations[0]?.id ?? null;
         restoreContacts();
 
@@ -407,10 +407,41 @@
         show(form, true);
         render();
 
-        // Ссылка вида /book/?service=rent_pro сразу открывает нужную услугу.
-        const preset = new URLSearchParams(location.search).get("service");
+        // Ссылка вида /?service=rent_pro#booking (в т.ч. редирект со старой /book) сразу открывает нужную услугу.
+        const preset = pendingService ?? new URLSearchParams(location.search).get("service");
         if (preset) selectService(preset);
     }
+
+    // Кнопки тарифов: <a href="#booking" data-book-service="rent_pro"> — прокрутка к форме с выбранной услугой.
+    let pendingService = null;
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("[data-book-service]");
+        if (!link) return;
+        const id = link.dataset.bookService;
+        if (state.config) {
+            restart();
+            selectService(id);
+        } else {
+            pendingService = id;
+        }
+    });
+
+    function restart() {
+        state.time = null;
+        state.noDate = false;
+        state.startedAt = Date.now();
+        slotsCache.clear();
+        setMessage("");
+        show(document.getElementById("booking-success"), false);
+        show(form, true);
+    }
+
+    document.getElementById("booking-restart")?.addEventListener("click", () => {
+        restart();
+        render();
+        loadSlots();
+        scrollTo("booking");
+    });
 
     init();
 })();
