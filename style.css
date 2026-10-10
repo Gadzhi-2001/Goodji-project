@@ -2004,6 +2004,26 @@ select {
     }
 }
 
+/* Мини-приложение Telegram: только форма записи */
+.tg-app .site-header,
+.tg-app .site-footer,
+.tg-app .video-modal,
+.tg-app main > section:not(#booking) {
+    display: none;
+}
+
+.tg-app .section--booking {
+    padding: 28px 0 40px;
+}
+
+.tg-app .section--booking .section-heading {
+    margin-bottom: 24px;
+}
+
+.tg-app .section--booking .section-heading__title {
+    font-size: 2.2rem;
+}
+
 /* ---------- Техника ---------- */
 
 .equip-grid {

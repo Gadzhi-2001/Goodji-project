@@ -23,6 +23,25 @@
     };
     const slotsCache = new Map();
 
+    // Мини-приложение Telegram: сайт открыт кнопкой «Записаться» в боте (?from=tg).
+    const inTelegram = new URLSearchParams(location.search).get("from") === "tg";
+    let tgApp = null;
+    if (inTelegram) {
+        const sdk = document.createElement("script");
+        sdk.src = "https://telegram.org/js/telegram-web-app.js";
+        sdk.onload = () => {
+            tgApp = window.Telegram?.WebApp ?? null;
+            if (!tgApp) return;
+            tgApp.ready();
+            tgApp.expand();
+            const user = tgApp.initDataUnsafe?.user;
+            if (user?.first_name && !form.elements.name.value) {
+                form.elements.name.value = [user.first_name, user.last_name].filter(Boolean).join(" ");
+            }
+        };
+        document.head.append(sdk);
+    }
+
     const rub = (n) => `${n.toLocaleString("ru-RU").replace(/\s/g, " ")} ₽`;
     const service = () => state.config?.services.find((s) => s.id === state.serviceId);
     const option = () => service()?.options[state.option];
@@ -343,6 +362,7 @@
                     name,
                     phone,
                     website: form.elements.website.value,
+                    tgInitData: tgApp?.initData || undefined,
                     startedAt: state.startedAt,
                 }),
             });
@@ -350,7 +370,7 @@
 
             if (res.ok && data.ok) {
                 saveContacts(name, phone);
-                showSuccess(data.kind, phone);
+                showSuccess(data.kind, phone, data.telegram);
                 return;
             }
             if (res.status === 409) {
@@ -374,11 +394,13 @@
         }
     });
 
-    function showSuccess(kind, phone) {
+    function showSuccess(kind, phone, viaTelegram) {
         const day = state.slots?.find((d) => d.date === state.date);
+        const confirm = viaTelegram ? "Подтверждение придёт в чат с ботом." : `Подтвердим бронь в течение часа — позвоним или напишем в WhatsApp на номер ${phone}.`;
         const text = kind === "request" || state.noDate || !state.time
             ? "Мы свяжемся с вами, чтобы обсудить детали, дату и стоимость."
-            : `${day?.long ?? ""}, ${range(state.time)}. Подтвердим бронь в течение часа — позвоним или напишем в WhatsApp на номер ${phone}.`;
+            : `${day?.long ?? ""}, ${range(state.time)}. ${confirm}`;
+        if (tgApp) tgApp.HapticFeedback?.notificationOccurred("success");
         document.querySelector('[data-role="success-text"]').textContent = text;
         show(form, false);
         show(document.getElementById("booking-success"), true);
