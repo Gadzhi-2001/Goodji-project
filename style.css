@@ -467,6 +467,15 @@ select {
     inset: 0;
 }
 
+.hero__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+    background: var(--bg);
+}
+
 .hero__media img {
     height: 100%;
     object-fit: cover;
@@ -1690,6 +1699,71 @@ a.contact-row:focus-visible {
     color: var(--muted);
     font-size: 1.08rem;
     text-align: right;
+}
+
+/* Первый экран с вертикальным видео.
+   Широкие экраны: видео — карточка 9:16 справа; телефоны: видео на весь первый экран. */
+@media (min-width: 900px) and (orientation: landscape) {
+    .hero {
+        --hero-card-h: min(calc(100svh - var(--header-height) - 56px), 780px);
+        --hero-card-w: calc(var(--hero-card-h) * 9 / 16);
+        background: radial-gradient(55% 60% at 22% 35%, var(--glow), transparent 70%), var(--bg);
+    }
+
+    .hero__media {
+        z-index: 1;
+        inset: calc(var(--header-height) + 8px) max(20px, calc((100% - var(--container)) / 2)) auto auto;
+        width: var(--hero-card-w);
+        height: var(--hero-card-h);
+        overflow: hidden;
+        border: 1px solid var(--line-strong);
+        border-radius: 32px;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
+    }
+
+    .hero__veil {
+        display: none;
+    }
+
+    .hero__container {
+        z-index: 2;
+        padding-right: calc(var(--hero-card-w) + 40px);
+    }
+}
+
+@media (min-width: 1181px) and (orientation: landscape) {
+    .hero__container {
+        grid-template-columns: minmax(0, 1fr) auto;
+        padding-right: 0;
+    }
+
+    /* карточка цен заходит на левый нижний угол видео, не закрывая человека */
+    .hero__panel {
+        justify-self: end;
+        width: 330px;
+        margin: 0 calc(var(--hero-card-w) - 170px) 0 0;
+        padding: 22px;
+        background: rgba(16, 14, 12, 0.78);
+    }
+
+    .hero__panel-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 1180px) {
+    .hero__veil {
+        background: linear-gradient(180deg, rgba(10, 9, 8, 0.45) 0%, rgba(10, 9, 8, 0.1) 28%, rgba(10, 9, 8, 0.8) 62%, var(--bg) 100%);
+    }
+}
+
+@media (max-width: 1180px) and (orientation: portrait), (max-width: 899px) {
+    /* видео занимает один экран сверху, карточка цен — уже на тёмном фоне */
+    .hero__media,
+    .hero__veil {
+        bottom: auto;
+        height: min(100svh, 100%);
+    }
 }
 
 @media (max-width: 1180px) {

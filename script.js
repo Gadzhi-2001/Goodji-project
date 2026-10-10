@@ -165,6 +165,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Фоновое видео: без автозапуска для тех, кто отключил анимации или экономит трафик — останется заставка.
+    const heroVideo = document.querySelector(".hero__video");
+    if (heroVideo && (prefersReducedMotion || navigator.connection?.saveData)) {
+        heroVideo.removeAttribute("autoplay");
+        heroVideo.preload = "none";
+        heroVideo.pause();
+    }
+
     setHeaderState();
     window.addEventListener("scroll", setHeaderState, { passive: true });
 
