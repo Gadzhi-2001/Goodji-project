@@ -1012,7 +1012,7 @@ select {
 
 .reel-card__frame {
     position: relative;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 9 / 16;
     overflow: hidden;
 }
 
@@ -2728,7 +2728,24 @@ a.contact-row:focus-visible {
         scroll-snap-align: start;
     }
 
+    /* reels — тоже карусель, как подкасты */
     .reel-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        gap: 10px;
+        margin: 0 -16px;
+        padding: 0 16px 8px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 16px;
+        scrollbar-width: none;
+    }
+
+    .reel-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reel-card {
+        flex: 0 0 46%;
+        scroll-snap-align: start;
     }
 }
