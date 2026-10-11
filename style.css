@@ -2455,3 +2455,280 @@ a.contact-row:focus-visible {
         gap: 10px;
     }
 }
+
+/* ---------- Призывы к записи после разделов ---------- */
+
+.cta-strip {
+    margin-top: 48px;
+    padding: 26px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border: 1.5px solid rgba(224, 169, 76, 0.45);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at top right, rgba(150, 106, 40, 0.2), transparent 55%),
+        var(--card);
+}
+
+.cta-strip__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+}
+
+.cta-strip__text {
+    margin: 6px 0 0;
+    max-width: 56ch;
+    color: var(--muted);
+}
+
+.cta-strip__actions,
+.note-bar__actions,
+.faq-cta__actions,
+.case-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.format-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.format-card__cta {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.format-card__text + .format-card__cta {
+    margin-top: 24px;
+}
+
+/* ---------- Как проходит запись ---------- */
+
+.process {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    counter-reset: none;
+}
+
+.process__step {
+    position: relative;
+    padding: 26px 24px;
+    border-radius: var(--radius-lg);
+    background: var(--card);
+}
+
+.process__num {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #14120f;
+    font-weight: 800;
+}
+
+.process__title {
+    margin: 18px 0 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.process__text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.97rem;
+}
+
+.process__cta {
+    margin-top: 28px;
+    text-align: center;
+}
+
+/* ---------- Кейсы: 6 подкастов, баннер записи, 6 reels ---------- */
+
+.case-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-card__actions .btn {
+    flex: 1 1 auto;
+}
+
+.case-cta {
+    margin-top: 20px;
+    padding: 28px 32px;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+.case-cta__title {
+    margin-top: 0;
+}
+
+.case-cta .btn {
+    width: auto;
+}
+
+.case-cta__link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.reel-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+/* ---------- Закреплённая панель записи (телефон и планшет) ---------- */
+
+.sticky-cta {
+    display: none;
+}
+
+@media (max-width: 1180px) {
+    .sticky-cta {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        z-index: 25;
+        display: flex;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: rgba(16, 14, 12, 0.88);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+        transform: translateY(140%);
+        transition: transform 260ms ease;
+    }
+
+    .sticky-cta.is-visible {
+        transform: translateY(0);
+    }
+
+    .sticky-cta__main {
+        flex: 1;
+        min-height: 50px;
+    }
+
+    .sticky-cta__wa {
+        display: grid;
+        place-items: center;
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #25d366;
+        color: #fff;
+    }
+
+    .site-footer {
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
+    }
+
+    .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .case-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reel-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.tg-app .sticky-cta {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .cta-strip,
+    .case-cta {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 20px;
+    }
+
+    .cta-strip__actions .btn,
+    .note-bar__actions .btn,
+    .faq-cta__actions .btn,
+    .case-cta__actions .btn {
+        flex: 1 1 100%;
+    }
+
+    .case-cta__actions {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .faq-cta__actions {
+        width: 100%;
+    }
+
+    .process {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .process__step {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 16px;
+        padding: 20px;
+    }
+
+    .process__num {
+        grid-row: span 2;
+    }
+
+    .process__title {
+        margin: 6px 0 4px;
+    }
+
+    /* 6 подкастов — карусель с прокруткой вбок */
+    .case-grid {
+        display: flex;
+        gap: 12px;
+        margin: 0 -16px;
+        padding: 0 16px 8px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 16px;
+        scrollbar-width: none;
+    }
+
+    .case-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .case-card {
+        flex: 0 0 86%;
+        scroll-snap-align: start;
+    }
+
+    .reel-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

@@ -173,6 +173,33 @@ document.addEventListener("DOMContentLoaded", () => {
         heroVideo.pause();
     }
 
+    // Закреплённая панель «Записаться» на телефоне: после первого экрана, но не поверх формы и контактов.
+    const stickyCta = document.getElementById("sticky-cta");
+    const heroSection = document.querySelector(".hero");
+    if (stickyCta && heroSection && "IntersectionObserver" in window) {
+        const hideOver = ["booking", "contacts"].map((id) => document.getElementById(id)).filter(Boolean);
+        const visible = new Set();
+        let pastHero = false;
+
+        const updateSticky = () => {
+            const show = pastHero && visible.size === 0;
+            stickyCta.classList.toggle("is-visible", show);
+            stickyCta.setAttribute("aria-hidden", String(!show));
+            stickyCta.querySelectorAll("a").forEach((link) => (show ? link.removeAttribute("tabindex") : link.setAttribute("tabindex", "-1")));
+        };
+
+        new IntersectionObserver(([entry]) => {
+            pastHero = !entry.isIntersecting;
+            updateSticky();
+        }).observe(heroSection);
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => (entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)));
+            updateSticky();
+        }, { threshold: 0.15 });
+        hideOver.forEach((section) => sectionObserver.observe(section));
+    }
+
     setHeaderState();
     window.addEventListener("scroll", setHeaderState, { passive: true });
 
