@@ -2881,3 +2881,31 @@ a.contact-row:focus-visible {
 .route__facts a {
     white-space: nowrap;
 }
+
+/* подсказка под видео-маршрутом: в сетке встаёт под видео */
+.route__hint {
+    grid-column: 1;
+    grid-row: 2;
+    margin: -28px 0 0;
+    color: var(--subtle);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.route__info {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+@media (max-width: 720px) {
+    .route__hint {
+        grid-column: auto;
+        grid-row: auto;
+        margin: -12px 0 0;
+    }
+
+    .route__info {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
