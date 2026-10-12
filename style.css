@@ -2154,22 +2154,43 @@ a.contact-row:focus-visible {
 }
 
 @media (min-width: 1181px) and (orientation: landscape) {
+
+    /* цены — отдельной компактной карточкой в левой колонке, видео справа ничем не перекрыто */
     .hero__container {
-        grid-template-columns: minmax(0, 1fr) auto;
-        padding-right: 0;
+        grid-template-columns: minmax(0, 1fr);
+        padding-right: calc(var(--hero-card-w) + 56px);
+        align-content: center;
+        row-gap: 28px;
     }
 
-    /* карточка цен заходит на левый нижний угол видео, не закрывая человека */
     .hero__panel {
-        justify-self: end;
-        width: 330px;
-        margin: 0 calc(var(--hero-card-w) - 170px) 0 0;
-        padding: 22px;
-        background: rgba(16, 14, 12, 0.78);
+        justify-self: start;
+        width: 100%;
+        max-width: 640px;
+        margin: 0;
+        padding: 20px 24px;
+        background: var(--card);
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .hero__panel-label {
+        margin-bottom: 6px;
     }
 
     .hero__panel-title {
-        font-size: 1.4rem;
+        display: none;
+    }
+
+    .hero__panel-list {
+        margin-top: 4px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 28px;
+    }
+
+    .hero__panel-link {
+        margin-top: 12px;
     }
 }
 
