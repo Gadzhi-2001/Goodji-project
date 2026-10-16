@@ -9,8 +9,12 @@
     const phoneForm = $("phone-form");
     const codeForm = $("code-form");
     const tgConfirm = $("tg-confirm");
+    const tgLogin = $("tg-login");
     let phone = "";
     let tgApp = null;
+    // Мини-приложение умеет само запросить номер у Telegram (Bot API 6.9+).
+    const canShareContact = () => Boolean(tgApp?.requestContact && tgApp.isVersionAtLeast?.("6.9"));
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const storage = {
         get: () => { try { return localStorage.getItem(TOKEN_KEY); } catch { return null; } },
@@ -104,6 +108,11 @@
             show(tgConfirm, false);
             show(phoneForm, true);
         }
+        if (action === "phone-login") {
+            show(tgLogin, false);
+            show(phoneForm, true);
+        }
+        if (action === "tg-contact") loginWithContact(event.target.closest("button"));
         if (action === "retry-code") requestCode(phone, tgConfirm, event.target.closest("button"));
         if (action === "logout") {
             await api("/auth/logout", { method: "POST", auth: true }).catch(() => {});
@@ -115,6 +124,44 @@
             const { status } = await api("/me/cancel", { method: "POST", body: { bookingId: cancelId }, auth: true });
             if (status !== 200) alert("Не получилось отменить. Напишите нам в WhatsApp.");
             await loadAccount();
+        }
+    });
+
+    // Номер уходит боту сообщением; как только бот привяжет его к чату, входим по подписи Telegram.
+    function loginWithContact(button) {
+        setError(tgLogin, "");
+        tgApp.requestContact(async (shared) => {
+            if (!shared) return setError(tgLogin, "Без номера войти не получится. Нажмите кнопку ещё раз и выберите «Поделиться».");
+            button.disabled = true;
+            button.textContent = "Входим…";
+            for (let i = 0; i < 10; i++) {
+                await sleep(1000);
+                const { data } = await api("/auth/telegram", { method: "POST", body: { tgInitData: tgApp.initData } }).catch(() => ({ data: {} }));
+                if (data.token) {
+                    storage.set(data.token);
+                    return loadAccount();
+                }
+            }
+            button.disabled = false;
+            button.textContent = "Войти через Telegram";
+            setError(tgLogin, "Не получилось войти. Закройте кабинет и откройте его снова.");
+        });
+    }
+
+    // Внутри мини-приложения: ссылки на бота открываем средствами Telegram (обычная t.me там может не сработать),
+    // а переходы на сайт оставляем в режиме мини-приложения.
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href]");
+        if (!link || !tgApp) return;
+        if (link.href.startsWith("https://t.me/") && tgApp.openTelegramLink) {
+            event.preventDefault();
+            tgApp.openTelegramLink(link.href);
+        } else if (link.getAttribute("href").startsWith("../") && link.target !== "_blank") {
+            const url = new URL(link.href);
+            if (url.searchParams.get("from") === "tg") return;
+            event.preventDefault();
+            url.searchParams.set("from", "tg");
+            location.href = url.href;
         }
     });
 
@@ -259,7 +306,8 @@
         show($("cab-loading"), false);
         show($("cab-account"), false);
         show($("cab-login"), true);
-        show(phoneForm, true);
+        show(tgLogin, canShareContact());
+        show(phoneForm, !canShareContact());
         show(codeForm, false);
         show(tgConfirm, false);
     }

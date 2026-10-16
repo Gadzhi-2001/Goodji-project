@@ -41,6 +41,21 @@
             }
         };
         document.head.append(sdk);
+
+        // Внутри Telegram кабинет открываем в режиме мини-приложения (вход одной кнопкой),
+        // а ссылки на бота — средствами Telegram: обычная ссылка t.me там может не сработать.
+        document.addEventListener("click", (event) => {
+            const link = event.target.closest("a[href]");
+            if (!link) return;
+            const href = link.getAttribute("href");
+            if (href.startsWith("./cabinet/") && !href.includes("from=tg")) {
+                event.preventDefault();
+                location.href = href.replace("./cabinet/", "./cabinet/?from=tg");
+            } else if (href.startsWith("https://t.me/") && tgApp?.openTelegramLink) {
+                event.preventDefault();
+                tgApp.openTelegramLink(href);
+            }
+        });
     }
 
     const rub = (n) => `${n.toLocaleString("ru-RU").replace(/\s/g, " ")} ₽`;

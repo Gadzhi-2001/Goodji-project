@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=20261017">
-    <link rel="stylesheet" href="./cabinet.css?v=20261017b">
+    <link rel="stylesheet" href="../style.css?v=20261017c">
+    <link rel="stylesheet" href="./cabinet.css?v=20261017c">
 </head>
 <body>
     <header class="cab-header">
@@ -27,7 +27,15 @@
         <section class="cab-card cab-login" id="cab-login" hidden>
             <p class="eyebrow">Личный кабинет</p>
             <h1 class="cab__title">Ваши брони и скидки.</h1>
-            <p class="cab__lead">Войдите по номеру телефона — код придёт в Telegram. Сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%. Здесь же — абонементы на часы аренды от 1&nbsp;400&nbsp;₽/ч.</p>
+            <p class="cab__lead">Войдите по номеру телефона — код придёт в Telegram. Сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%. Здесь же — абонементы на часы аренды от 1&nbsp;400&nbsp;₽ за&nbsp;час.</p>
+
+            <!-- В мини-приложении Telegram: вход одной кнопкой, номер передаёт сам Telegram -->
+            <div class="cab-form" id="tg-login" hidden>
+                <button class="btn btn--primary btn--block" type="button" data-action="tg-contact">Войти через Telegram</button>
+                <p class="cab-form__error" data-role="error" hidden></p>
+                <p class="cab-hint">Telegram попросит поделиться номером. Нажимая кнопку, вы соглашаетесь на обработку персональных данных по <a href="../privacy/" target="_blank">политике конфиденциальности</a>.</p>
+                <button class="cab-link" type="button" data-action="phone-login">Войти по номеру телефона</button>
+            </div>
 
             <form class="cab-form" id="phone-form" novalidate>
                 <label class="field">
@@ -109,6 +117,6 @@
         </section>
     </main>
 
-    <script src="./cabinet.js?v=20261017b"></script>
+    <script src="./cabinet.js?v=20261017c"></script>
 </body>
 </html>

@@ -2008,7 +2008,7 @@ select {
 .tg-app .site-header,
 .tg-app .site-footer,
 .tg-app .video-modal,
-.tg-app main > section:not(#booking) {
+.tg-app main:not(.cab) > section:not(#booking) { /* мини-приложение записи: только форма; кабинет не трогаем */
     display: none;
 }
 
