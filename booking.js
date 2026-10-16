@@ -188,7 +188,22 @@
             ...rows.map(([k, v]) => el("div", { class: "summary__row" }, [el("dt", { text: k }), el("dd", { text: v })])),
         );
         const total = role("total");
-        total.textContent = o.price > 0 ? rub(o.price) : "рассчитаем индивидуально";
+        const discount = o.price > 0 ? state.loyalty?.discount ?? 0 : 0;
+        if (discount > 0) {
+            // Скидка по программе лояльности (клиент вошёл в личный кабинет); округление — как на сервере.
+            const final = Math.round((o.price * (100 - discount)) / 100 / 10) * 10;
+            total.innerHTML = `<s class="summary__old"></s> ${rub(final)}`;
+            total.querySelector("s").textContent = rub(o.price);
+        } else {
+            total.textContent = o.price > 0 ? rub(o.price) : "рассчитаем индивидуально";
+        }
+        const loyaltyNote = role("loyalty");
+        if (loyaltyNote) {
+            loyaltyNote.innerHTML = discount > 0
+                ? `Ваша скидка <strong>${discount}%</strong> — уровень «${state.loyalty.tierName}»`
+                : o.price > 0 ? `<a href="./cabinet/">Войдите в личный кабинет</a> — скидка 5% на эту и все следующие записи` : "";
+            show(loyaltyNote, Boolean(loyaltyNote.innerHTML));
+        }
         total.classList.toggle("is-text", o.price === 0);
         role("submit").textContent = state.noDate ? "Отправить запрос" : "Отправить заявку";
     }
@@ -315,6 +330,21 @@
         }
     }
 
+    // Клиент вошёл в личный кабинет — подставляем имя, телефон и скидку.
+    async function loadLoyalty() {
+        let token = null;
+        try { token = localStorage.getItem("luma-cabinet-token"); } catch { /* приватный режим */ }
+        if (!token) return;
+        try {
+            const res = await fetch(`${API}/me`, { headers: { authorization: `Bearer ${token}` } });
+            if (!res.ok) return;
+            const me = await res.json();
+            state.loyalty = { discount: me.tier.discount, tierName: me.tier.name };
+            if (me.name && !form.elements.name.value) form.elements.name.value = me.name;
+            if (!form.elements.phone.value) form.elements.phone.value = `+${me.phone}`;
+        } catch { /* кабинет недоступен — запись работает без скидки в интерфейсе */ }
+    }
+
     function restoreContacts() {
         try {
             const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null");
@@ -424,6 +454,7 @@
         if (tgLink && state.config.botUsername) tgLink.href = `https://t.me/${state.config.botUsername}`;
         state.locationId = state.config.locations[0]?.id ?? null;
         restoreContacts();
+        await loadLoyalty();
 
         show(document.getElementById("booking-loading"), false);
         show(form, true);

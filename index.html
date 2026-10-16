@@ -38,7 +38,7 @@
     }
     </script>
     <script>if (/[?&]from=tg\b/.test(location.search)) document.documentElement.classList.add("tg-app");</script>
-    <link rel="stylesheet" href="./style.css?v=20261012-3">
+    <link rel="stylesheet" href="./style.css?v=20261016">
 </head>
 <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -87,6 +87,7 @@
                 <a href="#equipment" class="nav__link">Оборудование</a>
                 <a href="#faq" class="nav__link">FAQ</a>
                 <a href="#contacts" class="nav__link">Контакты</a>
+                <a href="./cabinet/" class="nav__link nav__link--cabinet">Кабинет</a>
             </nav>
 
             <div class="site-header__actions">
@@ -118,6 +119,7 @@
                     <a href="#equipment" class="nav__link">Оборудование</a>
                     <a href="#faq" class="nav__link">FAQ</a>
                     <a href="#contacts" class="nav__link">Контакты</a>
+                    <a href="./cabinet/" class="nav__link nav__link--cabinet">Кабинет</a>
                 </nav>
 
                 <div class="mobile-menu__contacts">
@@ -460,9 +462,11 @@
                         <div class="summary" id="summary" hidden>
                             <dl class="summary__list" data-role="summary"></dl>
                             <p class="summary__total"><span>Итого</span><strong data-role="total"></strong></p>
+                            <p class="summary__loyalty" data-role="loyalty" hidden></p>
                             <p class="summary__message" data-role="message" hidden></p>
                             <button class="btn btn--primary btn--block" type="submit" data-role="submit">Отправить заявку</button>
                             <p class="summary__note">Бронь станет окончательной после нашего подтверждения — позвоним или напишем в WhatsApp.</p>
+                            <p class="summary__note">Отправляя заявку, вы соглашаетесь на обработку персональных данных по <a href="./privacy/" target="_blank">политике конфиденциальности</a>.</p>
                         </div>
                     </form>
 
@@ -1179,6 +1183,6 @@
     </footer>
 
     <script src="./script.js?v=20261011-3"></script>
-    <script src="./booking.js?v=20261011-2"></script>
+    <script src="./booking.js?v=20261016"></script>
 </body>
 </html>

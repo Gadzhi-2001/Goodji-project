@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Личный кабинет — Luma Studio</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0a0908">
+    <link rel="icon" href="data:,">
+    <script>if (/[?&]from=tg\b/.test(location.search)) document.documentElement.classList.add("tg-app");</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=20261016">
+    <link rel="stylesheet" href="./cabinet.css?v=20261016">
+</head>
+<body>
+    <header class="cab-header">
+        <a href="../" class="cab-header__logo"><img src="../images/logo-luma.png" alt="Luma Studio" width="459" height="253"></a>
+        <a href="../#booking" class="btn btn--primary cab-header__cta">Записаться</a>
+    </header>
+
+    <main class="cab">
+        <p class="cab__loading" id="cab-loading">Загружаем…</p>
+
+        <!-- Вход -->
+        <section class="cab-card cab-login" id="cab-login" hidden>
+            <p class="eyebrow">Личный кабинет</p>
+            <h1 class="cab__title">Ваши брони и скидки.</h1>
+            <p class="cab__lead">Войдите по номеру телефона — сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%.</p>
+
+            <form class="cab-form" id="phone-form" novalidate>
+                <label class="field">
+                    <span class="field__label">Телефон</span>
+                    <input class="field__input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+                </label>
+                <label class="cab-consent">
+                    <input type="checkbox" name="consent" required>
+                    <span>Согласен на обработку персональных данных в соответствии с <a href="../privacy/" target="_blank">политикой конфиденциальности</a></span>
+                </label>
+                <p class="cab-form__error" data-role="error" hidden></p>
+                <button class="btn btn--primary btn--block" type="submit">Получить код</button>
+            </form>
+
+            <form class="cab-form" id="code-form" novalidate hidden>
+                <p class="cab__lead" data-role="sent-to"></p>
+                <label class="field">
+                    <span class="field__label">Код из сообщения</span>
+                    <input class="field__input cab-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="••••••" required>
+                </label>
+                <p class="cab-form__error" data-role="error" hidden></p>
+                <button class="btn btn--primary btn--block" type="submit">Войти</button>
+                <button class="cab-link" type="button" data-action="change-phone">Изменить номер</button>
+            </form>
+        </section>
+
+        <!-- Кабинет -->
+        <section class="cab-account" id="cab-account" hidden>
+            <div class="cab-hello">
+                <div>
+                    <p class="eyebrow">Личный кабинет</p>
+                    <h1 class="cab__title" data-role="hello"></h1>
+                </div>
+                <button class="cab-link" type="button" data-action="logout">Выйти</button>
+            </div>
+
+            <div class="cab-card cab-tier">
+                <div class="cab-tier__main">
+                    <p class="cab-tier__label">Ваш уровень</p>
+                    <p class="cab-tier__name" data-role="tier-name"></p>
+                    <p class="cab-tier__visits" data-role="visits"></p>
+                </div>
+                <p class="cab-tier__discount"><span data-role="discount"></span><small>скидка на все записи</small></p>
+                <div class="cab-progress" data-role="progress-wrap">
+                    <div class="cab-progress__bar"><span data-role="progress"></span></div>
+                    <p class="cab-progress__text" data-role="progress-text"></p>
+                </div>
+                <ol class="cab-tiers" data-role="tiers"></ol>
+                <a href="../#booking" class="btn btn--primary">Записаться со скидкой</a>
+            </div>
+
+            <div class="cab-card">
+                <h2 class="cab-card__title">Предстоящие</h2>
+                <ul class="cab-list" data-role="upcoming"></ul>
+            </div>
+
+            <div class="cab-card">
+                <h2 class="cab-card__title">История</h2>
+                <ul class="cab-list" data-role="history"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="./cabinet.js?v=20261016"></script>
+</body>
+</html>

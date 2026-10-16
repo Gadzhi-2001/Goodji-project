@@ -2909,3 +2909,30 @@ a.contact-row:focus-visible {
         grid-row: auto;
     }
 }
+
+/* ---------- Программа лояльности в форме записи ---------- */
+
+.summary__old {
+    margin-right: 6px;
+    color: var(--subtle);
+    font-size: 0.6em;
+    font-weight: 600;
+}
+
+.summary__loyalty {
+    margin: -6px 0 16px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(224, 169, 76, 0.1);
+    color: var(--accent-soft);
+    font-size: 0.92rem;
+}
+
+.summary__loyalty a,
+.summary__loyalty strong {
+    color: var(--accent);
+}
+
+.nav__link--cabinet {
+    color: var(--accent);
+}

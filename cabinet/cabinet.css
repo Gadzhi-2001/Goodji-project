@@ -1,0 +1,347 @@
+/* Личный кабинет: использует токены и кнопки из ../style.css */
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(60% 40% at 50% 0, var(--glow), transparent 70%),
+        var(--bg);
+}
+
+.cab-header {
+    width: min(760px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cab-header__logo img {
+    width: auto;
+    height: 40px;
+}
+
+.cab-header__cta {
+    min-height: 44px;
+    padding: 10px 20px;
+}
+
+.tg-app .cab-header {
+    display: none;
+}
+
+.cab {
+    width: min(760px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 24px 0 64px;
+}
+
+.cab__loading {
+    padding: 60px 0;
+    color: var(--muted);
+    text-align: center;
+}
+
+.cab__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.cab__lead {
+    margin: 14px 0 0;
+    color: var(--muted);
+}
+
+.cab__lead strong {
+    color: var(--accent);
+}
+
+.cab-card {
+    padding: 28px;
+    border-radius: var(--radius-xl);
+    background: var(--card);
+}
+
+.cab-card + .cab-card {
+    margin-top: 16px;
+}
+
+.cab-card__title {
+    margin: 0 0 14px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+}
+
+.cab-form {
+    margin-top: 24px;
+    display: grid;
+    gap: 14px;
+}
+
+.cab-code {
+    font-size: 1.6rem;
+    letter-spacing: 0.4em;
+    text-align: center;
+}
+
+.cab-consent {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.cab-consent input {
+    margin-top: 3px;
+    accent-color: var(--accent);
+}
+
+.cab-consent a,
+.cab-link {
+    color: var(--accent);
+}
+
+.cab-link {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cab-form__error {
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(255, 138, 122, 0.1);
+    color: #ff8a7a;
+    font-size: 0.92rem;
+}
+
+.cab-hello {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* уровень лояльности */
+
+.cab-tier {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px 24px;
+    border: 1.5px solid var(--accent);
+    background:
+        radial-gradient(circle at top right, rgba(150, 106, 40, 0.28), transparent 55%),
+        var(--card);
+}
+
+.cab-tier__label,
+.cab-tier__visits {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.cab-tier__name {
+    margin: 4px 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+
+.cab-tier__discount {
+    margin: 0;
+    text-align: right;
+}
+
+.cab-tier__discount span {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(3.4rem, 10vw, 4.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    background: linear-gradient(180deg, #f7e9c8 20%, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cab-tier__discount small {
+    color: var(--muted);
+}
+
+.cab-progress,
+.cab-tiers,
+.cab-tier .btn {
+    grid-column: 1 / -1;
+}
+
+.cab-progress__bar {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 244, 222, 0.08);
+    overflow: hidden;
+}
+
+.cab-progress__bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--accent);
+    transition: width 600ms ease;
+}
+
+.cab-progress__text {
+    margin: 10px 0 0;
+    font-size: 0.95rem;
+}
+
+.cab-tiers {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.cab-tiers__item {
+    padding: 12px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    text-align: center;
+    opacity: 0.55;
+}
+
+.cab-tiers__item.is-reached {
+    opacity: 1;
+}
+
+.cab-tiers__item.is-current {
+    border-color: var(--accent);
+    background: rgba(224, 169, 76, 0.1);
+}
+
+.cab-tiers__item strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+}
+
+.cab-tiers__item span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.cab-tiers__item small {
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+/* брони */
+
+.cab-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cab-booking {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+}
+
+.cab-booking:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.cab-booking__title {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cab-booking__when {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.cab-booking__side {
+    display: grid;
+    justify-items: end;
+    align-content: start;
+    gap: 6px;
+    flex-shrink: 0;
+    font-size: 0.88rem;
+}
+
+.cab-booking__price {
+    font-weight: 600;
+}
+
+.cab-status {
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(255, 244, 222, 0.06);
+    color: var(--muted);
+}
+
+.cab-status--confirmed {
+    background: rgba(37, 211, 102, 0.12);
+    color: #6fe3a0;
+}
+
+.cab-status--tentative {
+    background: rgba(224, 169, 76, 0.14);
+    color: var(--accent);
+}
+
+.cab-empty {
+    color: var(--muted);
+}
+
+@media (max-width: 560px) {
+    .cab-card {
+        padding: 22px 18px;
+    }
+
+    .cab-tiers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cab-booking {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .cab-booking__side {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-items: start;
+    }
+}
