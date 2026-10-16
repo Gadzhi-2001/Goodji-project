@@ -27,7 +27,7 @@
         <section class="cab-card cab-login" id="cab-login" hidden>
             <p class="eyebrow">Личный кабинет</p>
             <h1 class="cab__title">Ваши брони и скидки.</h1>
-            <p class="cab__lead">Войдите по номеру телефона — сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%.</p>
+            <p class="cab__lead">Войдите по номеру телефона — код придёт в Telegram. Сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%.</p>
 
             <form class="cab-form" id="phone-form" novalidate>
                 <label class="field">
@@ -41,6 +41,15 @@
                 <p class="cab-form__error" data-role="error" hidden></p>
                 <button class="btn btn--primary btn--block" type="submit">Получить код</button>
             </form>
+
+            <!-- Номер ещё не знаком боту: подтверждаем его в Telegram один раз -->
+            <div class="cab-form" id="tg-confirm" hidden>
+                <p class="cab__lead">Подтвердите номер в Telegram — это нужно один раз. Бот попросит нажать одну кнопку, после этого коды для входа будут приходить ему в чат.</p>
+                <a class="btn btn--primary btn--block" href="https://t.me/luma_studiobot?start=login" target="_blank" rel="noopener">Подтвердить в Telegram</a>
+                <button class="btn btn--secondary btn--block" type="button" data-action="retry-code">Я подтвердил — получить код</button>
+                <p class="cab-form__error" data-role="error" hidden></p>
+                <button class="cab-link" type="button" data-action="change-phone">Изменить номер</button>
+            </div>
 
             <form class="cab-form" id="code-form" novalidate hidden>
                 <p class="cab__lead" data-role="sent-to"></p>
@@ -91,6 +100,6 @@
         </section>
     </main>
 
-    <script src="./cabinet.js?v=20261016"></script>
+    <script src="./cabinet.js?v=20261017"></script>
 </body>
 </html>

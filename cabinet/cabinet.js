@@ -8,6 +8,7 @@
 
     const phoneForm = $("phone-form");
     const codeForm = $("code-form");
+    const tgConfirm = $("tg-confirm");
     let phone = "";
     let tgApp = null;
 
@@ -35,7 +36,6 @@
     const ERRORS = {
         invalid_phone: "Проверьте номер телефона.",
         too_many_codes: "Слишком много запросов. Попробуйте через 10 минут.",
-        delivery_unavailable: "Не получилось отправить код. Напишите нам в WhatsApp — поможем войти.",
         wrong_code: "Неверный код. Проверьте и попробуйте ещё раз.",
         code_expired: "Код устарел. Запросите новый.",
         too_many_attempts: "Слишком много попыток. Запросите новый код.",
@@ -43,26 +43,37 @@
 
     // ---------- вход ----------
 
-    phoneForm.addEventListener("submit", async (event) => {
+    // form — где показать ошибку; если номер ещё не знаком боту, просим подтвердить его в Telegram.
+    async function requestCode(raw, form, button) {
+        setError(form, "");
+        button.disabled = true;
+        const { status, data } = await api("/auth/request", { method: "POST", body: { phone: raw } }).catch(() => ({ status: 0, data: {} }));
+        button.disabled = false;
+        phone = raw;
+        if (data.error === "delivery_unavailable") {
+            show(phoneForm, false);
+            show(tgConfirm, true);
+            if (form === tgConfirm) setError(tgConfirm, "Номер пока не подтверждён. Проверьте, что в Telegram указан этот же номер, и нажмите кнопку в чате с ботом.");
+            return;
+        }
+        if (status !== 200) return setError(form, ERRORS[data.error] ?? "Нет связи с сервером. Попробуйте ещё раз.");
+
+        codeForm.querySelector('[data-role="sent-to"]').textContent = data.channel === "telegram"
+            ? "Мы отправили код в Telegram — в чат с ботом Luma Studio."
+            : `Мы отправили SMS с кодом на номер ${raw}.`;
+        show(phoneForm, false);
+        show(tgConfirm, false);
+        show(codeForm, true);
+        codeForm.elements.code.focus();
+    }
+
+    phoneForm.addEventListener("submit", (event) => {
         event.preventDefault();
         setError(phoneForm, "");
         const raw = phoneForm.elements.phone.value.trim();
         if (raw.replace(/\D/g, "").length < 10) return setError(phoneForm, ERRORS.invalid_phone);
         if (!phoneForm.elements.consent.checked) return setError(phoneForm, "Нужно согласие на обработку персональных данных.");
-
-        const button = phoneForm.querySelector("button[type=submit]");
-        button.disabled = true;
-        const { status, data } = await api("/auth/request", { method: "POST", body: { phone: raw } }).catch(() => ({ status: 0, data: {} }));
-        button.disabled = false;
-        if (status !== 200) return setError(phoneForm, ERRORS[data.error] ?? "Нет связи с сервером. Попробуйте ещё раз.");
-
-        phone = raw;
-        codeForm.querySelector('[data-role="sent-to"]').textContent = data.channel === "telegram"
-            ? "Мы отправили код в Telegram — в чат с ботом Luma Studio."
-            : `Мы отправили SMS с кодом на номер ${raw}.`;
-        show(phoneForm, false);
-        show(codeForm, true);
-        codeForm.elements.code.focus();
+        requestCode(raw, phoneForm, phoneForm.querySelector("button[type=submit]"));
     });
 
     codeForm.addEventListener("submit", async (event) => {
@@ -90,8 +101,10 @@
         const action = event.target.closest("[data-action]")?.dataset.action;
         if (action === "change-phone") {
             show(codeForm, false);
+            show(tgConfirm, false);
             show(phoneForm, true);
         }
+        if (action === "retry-code") requestCode(phone, tgConfirm, event.target.closest("button"));
         if (action === "logout") {
             await api("/auth/logout", { method: "POST", auth: true }).catch(() => {});
             storage.clear();
@@ -192,6 +205,7 @@
         show($("cab-login"), true);
         show(phoneForm, true);
         show(codeForm, false);
+        show(tgConfirm, false);
     }
 
     async function loadAccount() {
