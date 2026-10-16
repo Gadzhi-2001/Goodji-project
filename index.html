@@ -38,7 +38,7 @@
     }
     </script>
     <script>if (/[?&]from=tg\b/.test(location.search)) document.documentElement.classList.add("tg-app");</script>
-    <link rel="stylesheet" href="./style.css?v=20261016">
+    <link rel="stylesheet" href="./style.css?v=20261017b">
 </head>
 <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -393,6 +393,98 @@
                     </div>
 
                     <p class="price-footnote">Оплата почасовая: 2 часа БАЗА — 4&nbsp;500&nbsp;₽, PRO — 9&nbsp;500&nbsp;₽. Нужен готовый выпуск с монтажом — смотрите <a href="#pricing">подкаст под ключ</a>.</p>
+
+                    <div class="passes" id="passes">
+                        <div class="passes__head">
+                            <div>
+                                <p class="eyebrow">Абонементы</p>
+                                <h3 class="passes__title">Снимаете регулярно? Берите часы пакетом.</h3>
+                                <p class="passes__text">Часы аренды «БАЗА» по цене от 1&nbsp;400&nbsp;₽ — делите их на любое число визитов в течение 3&nbsp;месяцев. При записи часы списываются автоматически.</p>
+                            </div>
+                            <a href="./cabinet/#packages" class="btn btn--primary passes__cta">Купить в личном кабинете</a>
+                        </div>
+                        <div class="passes__grid">
+                        <article class="pass-card">
+                            <p class="pass-card__hours">5 <span>часов</span></p>
+                            <p class="pass-card__per">2&nbsp;000&nbsp;₽ / час</p>
+                            <p class="pass-card__total">10&nbsp;000&nbsp;₽</p>
+                            <p class="pass-card__saving"><strong>−20%</strong> выгода 2&nbsp;500&nbsp;₽</p>
+                        </article>
+                        <article class="pass-card">
+                            <p class="pass-card__hours">7 <span>часов</span></p>
+                            <p class="pass-card__per">1&nbsp;800&nbsp;₽ / час</p>
+                            <p class="pass-card__total">12&nbsp;600&nbsp;₽</p>
+                            <p class="pass-card__saving"><strong>−28%</strong> выгода 4&nbsp;900&nbsp;₽</p>
+                        </article>
+                        <article class="pass-card pass-card--best">
+                            <span class="pass-card__badge">Популярный</span>
+                            <p class="pass-card__hours">10 <span>часов</span></p>
+                            <p class="pass-card__per">1&nbsp;650&nbsp;₽ / час</p>
+                            <p class="pass-card__total">16&nbsp;500&nbsp;₽</p>
+                            <p class="pass-card__saving"><strong>−34%</strong> выгода 8&nbsp;500&nbsp;₽</p>
+                        </article>
+                        <article class="pass-card">
+                            <p class="pass-card__hours">15 <span>часов</span></p>
+                            <p class="pass-card__per">1&nbsp;400&nbsp;₽ / час</p>
+                            <p class="pass-card__total">21&nbsp;000&nbsp;₽</p>
+                            <p class="pass-card__saving"><strong>−44%</strong> выгода 16&nbsp;500&nbsp;₽</p>
+                        </article>
+                        </div>
+                        <p class="passes__note">Выгода — по сравнению с разовой арендой часа за 2&nbsp;500&nbsp;₽. Оплата переводом или в студии после заявки в кабинете. Скидка лояльности на абонемент не действует, но каждый визит засчитывается в уровень.</p>
+                    </div>
+                </div>
+
+                <p class="price-footnote price-footnote--loyalty">
+                    <strong>Все цены — ещё дешевле в личном кабинете:</strong> скидка 5% сразу после регистрации и до 20% для постоянных клиентов. <a href="#loyalty">Как это работает</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="loyalty" class="section section--loyalty reveal">
+            <div class="container">
+                <div class="loyalty">
+                    <div class="loyalty__intro">
+                        <p class="eyebrow">Программа лояльности</p>
+                        <h2 class="section-heading__title">Чем чаще снимаете — тем дешевле.</h2>
+                        <p class="section-heading__text">
+                            Зарегистрируйтесь в личном кабинете — и скидка <strong>5%</strong> сработает уже на первой записи.
+                            Каждый визит приближает следующий уровень, скидка применяется автоматически.
+                        </p>
+                        <ul class="loyalty__perks">
+                            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Скидка считается сама — на сайте и в Telegram-боте</li>
+                            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Все брони и история визитов в одном месте</li>
+                            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Отмена записи в один клик</li>
+                            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><a href="#passes">Абонементы</a> на часы аренды — от 1&nbsp;400&nbsp;₽/ч</span></li>
+                        </ul>
+                        <div class="loyalty__actions">
+                            <a href="./cabinet/" class="btn btn--primary">Получить скидку 5%</a>
+                            <a href="#booking" class="btn btn--secondary">Записаться</a>
+                        </div>
+                        <p class="loyalty__note">Регистрация — 1 минута: номер телефона и подтверждение в Telegram.</p>
+                    </div>
+
+                    <ol class="loyalty__tiers">
+                        <li class="tier-card tier-card--start">
+                            <span class="tier-card__discount">5%</span>
+                            <span class="tier-card__name">Начальный</span>
+                            <span class="tier-card__when">сразу после регистрации</span>
+                        </li>
+                        <li class="tier-card">
+                            <span class="tier-card__discount">10%</span>
+                            <span class="tier-card__name">Постоянный</span>
+                            <span class="tier-card__when">от 3 визитов</span>
+                        </li>
+                        <li class="tier-card">
+                            <span class="tier-card__discount">15%</span>
+                            <span class="tier-card__name">Свой</span>
+                            <span class="tier-card__when">от 6 визитов</span>
+                        </li>
+                        <li class="tier-card tier-card--top">
+                            <span class="tier-card__discount">20%</span>
+                            <span class="tier-card__name">Родной</span>
+                            <span class="tier-card__when">от 10 визитов</span>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </section>
@@ -462,6 +554,10 @@
                         <div class="summary" id="summary" hidden>
                             <dl class="summary__list" data-role="summary"></dl>
                             <p class="summary__total"><span>Итого</span><strong data-role="total"></strong></p>
+                            <label class="summary__package" data-role="package" hidden>
+                                <input type="checkbox" name="usePackage" checked>
+                                <span data-role="package-text"></span>
+                            </label>
                             <p class="summary__loyalty" data-role="loyalty" hidden></p>
                             <p class="summary__message" data-role="message" hidden></p>
                             <button class="btn btn--primary btn--block" type="submit" data-role="submit">Отправить заявку</button>
@@ -924,6 +1020,30 @@
 
                     <div class="faq-item">
                         <button class="faq-item__btn" aria-expanded="false">
+                            <h3 class="faq-item__q">Есть ли скидки для постоянных клиентов?</h3>
+                            <span class="faq-item__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-item__body">
+                            <div class="faq-item__body-inner">
+                                <p class="faq-item__a">Да. Зарегистрируйтесь в <a href="./cabinet/">личном кабинете</a> — скидка 5% начнёт действовать сразу. От 3 визитов — 10%, от 6 — 15%, от 10 — 20%. Скидка применяется автоматически при записи на сайте или в Telegram-боте; на индивидуальные запросы цена рассчитывается отдельно.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__btn" aria-expanded="false">
+                            <h3 class="faq-item__q">Как работает абонемент на часы?</h3>
+                            <span class="faq-item__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-item__body">
+                            <div class="faq-item__body-inner">
+                                <p class="faq-item__a">Выберите пакет в <a href="./cabinet/#packages">личном кабинете</a>: 5, 7, 10 или 15 часов аренды «БАЗА» — от 2&nbsp;000 до 1&nbsp;400&nbsp;₽ за час. Мы свяжемся для оплаты (перевод или в студии), и часы зачислятся на 3 месяца. Дальше записывайтесь как обычно — при записи на аренду «БАЗА» часы спишутся с абонемента. Если отмените бронь, часы вернутся.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__btn" aria-expanded="false">
                             <h3 class="faq-item__q">Можно ли арендовать студию без съёмочной команды?</h3>
                             <span class="faq-item__icon" aria-hidden="true"></span>
                         </button>
@@ -1183,6 +1303,6 @@
     </footer>
 
     <script src="./script.js?v=20261011-3"></script>
-    <script src="./booking.js?v=20261016"></script>
+    <script src="./booking.js?v=20261017"></script>
 </body>
 </html>

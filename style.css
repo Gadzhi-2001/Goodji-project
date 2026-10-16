@@ -2936,3 +2936,318 @@ a.contact-row:focus-visible {
 .nav__link--cabinet {
     color: var(--accent);
 }
+
+/* ---------- Программа лояльности ---------- */
+
+.price-footnote--loyalty {
+    margin-top: 48px;
+    padding: 20px 24px;
+    border: 1px solid rgba(224, 169, 76, 0.35);
+    border-radius: var(--radius-md);
+    background: rgba(224, 169, 76, 0.06);
+    color: var(--muted);
+}
+
+.loyalty {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 48px;
+    align-items: center;
+    padding: 48px;
+    border: 1.5px solid rgba(224, 169, 76, 0.45);
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(circle at 100% 0, var(--glow), transparent 55%),
+        var(--card);
+}
+
+.loyalty__intro .section-heading__text {
+    margin-top: 18px;
+}
+
+.loyalty__intro .section-heading__text strong {
+    color: var(--accent);
+}
+
+.loyalty__perks {
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.loyalty__perks li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.loyalty__perks .icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--accent);
+}
+
+.loyalty__actions {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.loyalty__note {
+    margin: 14px 0 0;
+    color: var(--subtle);
+    font-size: 0.9rem;
+}
+
+.loyalty__tiers {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.tier-card {
+    display: grid;
+    gap: 4px;
+    padding: 24px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-lg);
+    background: rgba(10, 9, 8, 0.4);
+}
+
+.tier-card--start {
+    border-color: var(--accent);
+    background: rgba(224, 169, 76, 0.1);
+}
+
+.tier-card__discount {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 5vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--text);
+}
+
+.tier-card--top .tier-card__discount {
+    background: linear-gradient(180deg, #f7e9c8 20%, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tier-card__name {
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+.tier-card__when {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+@media (max-width: 960px) {
+    .loyalty {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px;
+    }
+}
+
+@media (max-width: 560px) {
+    .loyalty {
+        padding: 26px 18px;
+        border-radius: var(--radius-lg);
+    }
+
+    .loyalty__actions .btn {
+        flex: 1 1 100%;
+    }
+
+    .loyalty__tiers {
+        gap: 10px;
+    }
+
+    .tier-card {
+        padding: 18px 16px;
+    }
+}
+
+/* ---------- Абонементы на часы аренды ---------- */
+
+.passes {
+    margin-top: 40px;
+    padding: 36px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-xl);
+    background: var(--card);
+}
+
+.passes__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.passes__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.passes__text {
+    margin: 12px 0 0;
+    max-width: 60ch;
+    color: var(--muted);
+}
+
+.passes__cta {
+    flex-shrink: 0;
+}
+
+.passes__grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.pass-card {
+    position: relative;
+    padding: 24px 22px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-lg);
+    background: rgba(10, 9, 8, 0.4);
+}
+
+.pass-card--best {
+    border: 1.5px solid var(--accent);
+    background: rgba(224, 169, 76, 0.08);
+}
+
+.pass-card p {
+    margin: 0;
+}
+
+.pass-card__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #14120f;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.pass-card__hours {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.pass-card__hours span {
+    font-size: 1rem;
+    letter-spacing: 0;
+    color: var(--muted);
+}
+
+.pass-card__per {
+    margin-top: 12px !important;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.pass-card__total {
+    margin-top: 4px !important;
+    color: var(--text);
+}
+
+.pass-card__saving {
+    margin-top: 10px !important;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(37, 211, 102, 0.12);
+    color: #6fe3a0;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.passes__note {
+    margin: 18px 0 0;
+    color: var(--subtle);
+    font-size: 0.88rem;
+}
+
+.summary__package {
+    margin: 12px 0 0;
+    padding: 12px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1.5px solid var(--accent);
+    border-radius: 14px;
+    background: rgba(224, 169, 76, 0.1);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.summary__package input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+@media (max-width: 960px) {
+    .passes__head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .passes__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .passes {
+        padding: 24px 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    .passes__grid {
+        gap: 10px;
+    }
+
+    .pass-card {
+        padding: 18px 14px;
+    }
+
+    .pass-card__badge {
+        display: none;
+    }
+
+    .pass-card__saving {
+        display: block;
+        border-radius: 12px;
+        font-size: 0.8rem;
+    }
+}
+
+.loyalty__perks a {
+    color: var(--accent);
+}

@@ -2,6 +2,7 @@
 (() => {
     const API = "https://kyacbhvnvbjwyjxdsgqu.supabase.co/functions/v1/luma-bot/api";
     const STORAGE_KEY = "luma-book-contacts";
+    const PACKAGE_SERVICE_ID = "rent_base"; // абонементом оплачивается только аренда «БАЗА»
 
     const form = document.getElementById("booking-form");
     if (!form) return;
@@ -188,8 +189,19 @@
             ...rows.map(([k, v]) => el("div", { class: "summary__row" }, [el("dt", { text: k }), el("dd", { text: v })])),
         );
         const total = role("total");
-        const discount = o.price > 0 ? state.loyalty?.discount ?? 0 : 0;
-        if (discount > 0) {
+        // Абонемент: клиент вошёл в кабинет, выбрана аренда «БАЗА» и часов хватает.
+        const canPackage = s.id === PACKAGE_SERVICE_ID && !state.noDate && (state.packageMinutes ?? 0) >= o.minutes;
+        const packageToggle = role("package");
+        show(packageToggle, canPackage);
+        if (canPackage) {
+            const left = state.packageMinutes / 60;
+            role("package-text").textContent = `Списать с абонемента — на нём ${left} ч`;
+        }
+        const usePackage = canPackage && form.elements.usePackage.checked;
+        const discount = o.price > 0 && !usePackage ? state.loyalty?.discount ?? 0 : 0;
+        if (usePackage) {
+            total.textContent = "по абонементу";
+        } else if (discount > 0) {
             // Скидка по программе лояльности (клиент вошёл в личный кабинет); округление — как на сервере.
             const final = Math.round((o.price * (100 - discount)) / 100 / 10) * 10;
             total.innerHTML = `<s class="summary__old"></s> ${rub(final)}`;
@@ -198,13 +210,15 @@
             total.textContent = o.price > 0 ? rub(o.price) : "рассчитаем индивидуально";
         }
         const loyaltyNote = role("loyalty");
-        if (loyaltyNote) {
+        if (loyaltyNote && usePackage) {
+            show(loyaltyNote, false);
+        } else if (loyaltyNote) {
             loyaltyNote.innerHTML = discount > 0
                 ? `Ваша скидка <strong>${discount}%</strong> — уровень «${state.loyalty.tierName}»`
                 : o.price > 0 ? `<a href="./cabinet/">Войдите в личный кабинет</a> — скидка 5% на эту и все следующие записи` : "";
             show(loyaltyNote, Boolean(loyaltyNote.innerHTML));
         }
-        total.classList.toggle("is-text", o.price === 0);
+        total.classList.toggle("is-text", o.price === 0 || usePackage);
         role("submit").textContent = state.noDate ? "Отправить запрос" : "Отправить заявку";
     }
 
@@ -340,6 +354,8 @@
             if (!res.ok) return;
             const me = await res.json();
             state.loyalty = { discount: me.tier.discount, tierName: me.tier.name };
+            state.token = token;
+            state.packageMinutes = me.packages?.balanceMinutes ?? 0;
             if (me.name && !form.elements.name.value) form.elements.name.value = me.name;
             if (!form.elements.phone.value) form.elements.phone.value = `+${me.phone}`;
         } catch { /* кабинет недоступен — запись работает без скидки в интерфейсе */ }
@@ -354,6 +370,10 @@
             /* нет сохранённых данных */
         }
     }
+
+    form.addEventListener("change", (event) => {
+        if (event.target.name === "usePackage") renderSummary();
+    });
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -376,10 +396,11 @@
         submit.disabled = true;
         submit.textContent = "Отправляем…";
 
+        const usePackage = !role("package").hidden && form.elements.usePackage.checked;
         try {
             const res = await fetch(`${API}/book`, {
                 method: "POST",
-                headers: { "content-type": "application/json" },
+                headers: { "content-type": "application/json", ...(usePackage ? { authorization: `Bearer ${state.token}` } : {}) },
                 body: JSON.stringify({
                     locationId: state.locationId,
                     serviceId: state.serviceId,
@@ -393,17 +414,22 @@
                     phone,
                     website: form.elements.website.value,
                     tgInitData: tgApp?.initData || undefined,
+                    usePackage: usePackage || undefined,
                     startedAt: state.startedAt,
                 }),
             });
             const data = await res.json().catch(() => ({}));
 
             if (res.ok && data.ok) {
+                if (data.package) state.packageMinutes -= option().minutes;
                 saveContacts(name, phone);
                 showSuccess(data.kind, phone, data.telegram);
                 return;
             }
-            if (res.status === 409) {
+            if (data.error === "package_insufficient") {
+                state.packageMinutes = 0;
+                setMessage("На абонементе не хватает часов — заявка не отправлена. Снимите галочку, чтобы оплатить на месте.");
+            } else if (res.status === 409) {
                 setMessage("Это время только что заняли — выберите, пожалуйста, другое.");
                 slotsCache.clear();
                 state.time = null;

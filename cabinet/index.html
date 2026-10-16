@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=20261016">
-    <link rel="stylesheet" href="./cabinet.css?v=20261016">
+    <link rel="stylesheet" href="../style.css?v=20261017">
+    <link rel="stylesheet" href="./cabinet.css?v=20261017b">
 </head>
 <body>
     <header class="cab-header">
@@ -27,7 +27,7 @@
         <section class="cab-card cab-login" id="cab-login" hidden>
             <p class="eyebrow">Личный кабинет</p>
             <h1 class="cab__title">Ваши брони и скидки.</h1>
-            <p class="cab__lead">Войдите по номеру телефона — код придёт в Telegram. Сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%.</p>
+            <p class="cab__lead">Войдите по номеру телефона — код придёт в Telegram. Сразу получите скидку <strong>5%</strong> на все записи, а с каждым визитом она растёт до 20%. Здесь же — абонементы на часы аренды от 1&nbsp;400&nbsp;₽/ч.</p>
 
             <form class="cab-form" id="phone-form" novalidate>
                 <label class="field">
@@ -88,6 +88,15 @@
                 <a href="../#booking" class="btn btn--primary">Записаться со скидкой</a>
             </div>
 
+            <div class="cab-card cab-packages" id="packages">
+                <h2 class="cab-card__title">Абонементы на аренду</h2>
+                <p class="cab-packages__lead">Часы аренды «БАЗА» по сниженной цене. Действуют 3&nbsp;месяца, делятся на любое число визитов и списываются при записи.</p>
+                <div class="cab-balance" data-role="pkg-balance" hidden></div>
+                <p class="cab-pending" data-role="pkg-pending" hidden></p>
+                <div class="cab-plans" data-role="pkg-plans"></div>
+                <p class="cab-packages__note">Оплата — переводом или в студии. После заявки мы свяжемся с вами, часы зачислятся сразу после оплаты. Скидка лояльности на абонемент не действует, но каждый визит по нему засчитывается в уровень.</p>
+            </div>
+
             <div class="cab-card">
                 <h2 class="cab-card__title">Предстоящие</h2>
                 <ul class="cab-list" data-role="upcoming"></ul>
@@ -100,6 +109,6 @@
         </section>
     </main>
 
-    <script src="./cabinet.js?v=20261017"></script>
+    <script src="./cabinet.js?v=20261017b"></script>
 </body>
 </html>

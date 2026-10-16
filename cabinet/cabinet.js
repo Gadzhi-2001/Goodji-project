@@ -190,7 +190,63 @@
 
         fillList("upcoming", me.upcoming, "Пока нет предстоящих броней.");
         fillList("history", me.history, "Здесь появятся ваши прошлые записи.");
+        if (me.packages) renderPackages(me.packages);
     }
+
+    // ---------- абонементы ----------
+
+    function renderPackages(p) {
+        const balance = document.querySelector('[data-role="pkg-balance"]');
+        balance.replaceChildren(...(p.active.length ? [
+            Object.assign(document.createElement("p"), { className: "cab-balance__label", textContent: "На абонементе" }),
+            ...p.active.map((a) => {
+                const row = document.createElement("p");
+                row.className = "cab-balance__row";
+                row.innerHTML = "<strong></strong><span></span>";
+                row.querySelector("strong").textContent = a.left;
+                row.querySelector("span").textContent = `до ${a.until}`;
+                return row;
+            }),
+            Object.assign(document.createElement("a"), { className: "btn btn--primary", href: "../?service=rent_base#booking", textContent: "Записаться по абонементу" }),
+        ] : []));
+        show(balance, p.active.length > 0);
+
+        const pending = document.querySelector('[data-role="pkg-pending"]');
+        pending.textContent = p.pending.length
+            ? `Заявка на абонемент ${p.pending[0].hours} ч (${rub(p.pending[0].price)}) ждёт оплаты — мы свяжемся с вами.`
+            : "";
+        show(pending, p.pending.length > 0);
+
+        document.querySelector('[data-role="pkg-plans"]').replaceChildren(...p.plans.map((plan) => {
+            const card = document.createElement("div");
+            card.className = `cab-plan${plan.hours === 10 ? " cab-plan--best" : ""}`;
+            card.innerHTML = `
+                <p class="cab-plan__hours"></p>
+                <p class="cab-plan__per"></p>
+                <p class="cab-plan__total"></p>
+                <p class="cab-plan__saving"></p>
+                <button class="btn btn--secondary btn--block" type="button"></button>`;
+            card.querySelector(".cab-plan__hours").textContent = `${plan.hours} ч`;
+            card.querySelector(".cab-plan__per").textContent = `${rub(plan.perHour)} / час`;
+            card.querySelector(".cab-plan__total").textContent = rub(plan.total);
+            card.querySelector(".cab-plan__saving").textContent = `выгода ${rub(plan.saving)} · −${plan.savingPercent}%`;
+            const button = card.querySelector("button");
+            button.dataset.buy = plan.id;
+            button.dataset.label = `${plan.hours} ч за ${rub(plan.total)}`;
+            button.textContent = "Оставить заявку";
+            button.disabled = p.pending.length > 0;
+            return card;
+        }));
+    }
+
+    document.addEventListener("click", async (event) => {
+        const button = event.target.closest("[data-buy]");
+        if (!button || !confirm(`Оставить заявку на абонемент ${button.dataset.label}? Мы свяжемся с вами для оплаты.`)) return;
+        button.disabled = true;
+        const { status, data } = await api("/packages/buy", { method: "POST", body: { plan: button.dataset.buy }, auth: true }).catch(() => ({ status: 0, data: {} }));
+        if (status !== 200) alert(data.error === "pending_exists" ? "У вас уже есть заявка на абонемент — дождитесь, пожалуйста, нашего звонка." : "Не получилось отправить заявку. Напишите нам в WhatsApp.");
+        await loadAccount();
+    });
 
     function plural(n, one, few, many) {
         const m10 = n % 10, m100 = n % 100;
@@ -223,6 +279,8 @@
         show($("cab-login"), false);
         show($("cab-account"), true);
         render(data);
+        // Ссылка «купить абонемент» с главной: /cabinet/#packages
+        if (location.hash === "#packages") $("packages").scrollIntoView({ block: "start" });
     }
 
     // ---------- запуск ----------
